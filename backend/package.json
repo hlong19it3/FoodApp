@@ -1,0 +1,30 @@
+{
+  "name": "tutorial",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --inspect src/index.js",
+    "start1": "node src/index.js",
+    "watch": "node-sass -w src/views/scss/ -o src/public/css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thaiphuoc1303/node_tutorial.git"
+  },
+  "author": "thaiphuoc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thaiphuoc1303/node_tutorial/issues"
+  },
+  "homepage": "https://github.com/thaiphuoc1303/node_tutorial#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6"
+  },
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
