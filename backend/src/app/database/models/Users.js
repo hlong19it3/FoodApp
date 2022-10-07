@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const sequelize = require('../AppDatabase')
 
-const User = sequelize.define('User',{
+const User = sequelize.define('User', {
   // Model attributes are defined here
   id:{
     type: DataTypes.INTEGER,
@@ -55,10 +55,10 @@ const User = sequelize.define('User',{
   avatar: {
     type: DataTypes.STRING
   },
-  // created_at: { 
-  //   type: DataTypes.DATE, 
-  //   defaultValue: DataTypes.NOW 
-  // }
+  created_at: { 
+    type: DataTypes.DATE, 
+    defaultValue: DataTypes.NOW 
+  }
 }, {
   timestamps: false
 });

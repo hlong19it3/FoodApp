@@ -1,16 +1,14 @@
 
-class ExampleController{
+class ExampleController {
     // functions
 
-    index(req, res){
+    index(req, res) {
+        const addressDao = require('../../../app/database/dao/AddressDao')
         const exJson = {
-            'status_code' : 200,
-            'message' : "hello",
-            'user' : {
-                'name' : 'phuoc',
-                'age' : 21
-            }
+            customer_id: 2,
+            address: "Ha Tinh"
         }
+        addressDao.create(exJson)
         res.send(exJson);
     }
 }
