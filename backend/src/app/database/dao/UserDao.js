@@ -25,5 +25,4 @@ user data example
     await User.create(user)
 }
 
-
-module.exports = [insert]
+module.exports = {insert}

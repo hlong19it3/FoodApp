@@ -24,7 +24,7 @@ app.set('views', path.join(__dirname, './views'))
 const route = require('./routes/route');
 route(app);
 
-// const [insert] = require('./app/database/dao/UserDao')
+// const {insert} = require('./app/database/dao/FoodDao')
 // insert()
 
 // run
