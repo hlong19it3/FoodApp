@@ -2,13 +2,19 @@
 class ExampleController {
     // functions
 
+    initDatabase(req, res) {
+        const [sequelize] = require('../../database/models')
+        sequelize.sync({ alter: true })
+    }
+
     index(req, res) {
-        const addressDao = require('../../../app/database/dao/AddressDao')
+        const dao = require('../../../app/database/dao/VoucherDao')
         const exJson = {
-            customer_id: 2,
-            address: "Ha Tinh"
+            name: "10/10",
+            type: 1,
+            value: 10000
         }
-        addressDao.create(exJson)
+        // dao.insert(exJson)
         res.send(exJson);
     }
 }

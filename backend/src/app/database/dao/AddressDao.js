@@ -1,5 +1,5 @@
 const connection = require('../AppDatabase')
-const Address = require('../models/Address')
+const [Address] = require('../models')
 
 async function insert(address){
     await Address.create(address)

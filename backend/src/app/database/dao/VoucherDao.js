@@ -1,8 +1,8 @@
 const connection = require('../AppDatabase')
-const Voucher = require('../models/Voucher')
+const [Voucher] = require('../models')
 
 async function insert(voucher){
-    await OrderDetail.create(voucher)
+    await Voucher.create(voucher)
 }
 
 module.exports = {insert}

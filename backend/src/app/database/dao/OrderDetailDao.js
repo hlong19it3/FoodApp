@@ -1,5 +1,5 @@
 const connection = require('../AppDatabase')
-const OrderDetail = require('../models/OrderDetail')
+const [OrderDetail] = require('../models')
 
 async function insert(orderDetail){
     await OrderDetail.create(orderDetail)

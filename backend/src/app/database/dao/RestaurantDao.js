@@ -1,8 +1,8 @@
 const connection = require('../AppDatabase')
-const Restaurant = require('../models/Restaurant')
+const [Restaurant] = require('../models')
 
 async function insert(restaurant){
-    await OrderDetail.create(restaurant)
+    await Restaurant.create(restaurant)
 }
 
 module.exports = {insert}

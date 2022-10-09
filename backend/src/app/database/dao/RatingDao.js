@@ -1,8 +1,8 @@
 const connection = require('../AppDatabase')
-const Rating = require('../models/Rating')
+const [Rating] = require('../models')
 
 async function insert(rating){
-    await OrderDetail.create(rating)
+    await Rating.create(rating)
 }
 
 module.exports = {insert}
