@@ -5,6 +5,7 @@ class ExampleController {
     initDatabase(req, res) {
         const [sequelize] = require('../../database/models')
         sequelize.sync({ alter: true })
+        res.send('done')
     }
 
     index(req, res) {
