@@ -1,16 +1,20 @@
 
-class ExampleController{
+class ExampleController {
     // functions
 
-    index(req, res){
+    initDatabase(req, res) {
+        const [sequelize] = require('../../database/models')
+        sequelize.sync({ alter: true })
+    }
+
+    index(req, res) {
+        const dao = require('../../../app/database/dao/VoucherDao')
         const exJson = {
-            'status_code' : 200,
-            'message' : "hello",
-            'user' : {
-                'name' : 'phuoc',
-                'age' : 21
-            }
+            name: "10/10",
+            type: 1,
+            value: 10000
         }
+        // dao.insert(exJson)
         res.send(exJson);
     }
 }
