@@ -20,8 +20,10 @@
   "homepage": "https://github.com/thaiphuoc1303/node_tutorial#readme",
   "dependencies": {
     "body-parser": "^1.20.0",
+    "dotenv": "^16.0.3",
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
+    "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.24.0"

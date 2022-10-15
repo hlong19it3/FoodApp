@@ -1,10 +1,9 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 // import sub route
-const defaultRoute = require('./default')
+const defaultRoute = require("./default");
 
+router.use("/", defaultRoute);
 
-router.use('/', defaultRoute)
-
-module.exports = router
+module.exports = router;

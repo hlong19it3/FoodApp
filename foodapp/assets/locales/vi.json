@@ -1,0 +1,62 @@
+{
+    "CurrentUnit": "₫",
+    "Onboaring": {
+        "Title_1": "Hello.",
+        "Description_1": "Hãy đặt mục tiêu, quản lý, tiết kiệm, đầu tư và đạt được tự do tài chính cùng nhau",
+        "Title_2": "Biểu Đồ Phân Tích HIện Đại",
+        "Description_2": "Dễ dàng theo dõi thu nhập và chi phí với các biểu đồ chi tiết hiện đại",
+        "Title_3": "Tìm Kiếm Mọi Thứ",
+        "Description_3": "Tìm kiếm các giao dịch trong quá khứ với Bộ lọc thông minh để có kết quả chính xác và nhanh hơn",
+        "Title_4": "An Toàn Cao",
+        "Description_4": "Bảo mật thông tin của bạn một cách dễ dàng với phạm vi rộng của các tính năng của Finfree"
+    },
+    "Navigation": {
+        "Home": "Trang chủ",
+        "Stats": "Phân tích",
+        "Notes": "Ghi chú",
+        "More": "Cài đặt"
+    },
+    "DioError": {
+        "Cancel": "Request to API server was cancelled",
+        "ConnectTimeout": "Connection timeout with API server",
+        "ReceiveTimeout": "Receive timeout in connection with API server"
+
+    },
+    "Button": {
+        "Save": "Lưu lại",
+        "Cancel": "Huỷ bỏ",
+        "Yes": "Đồng ý",
+        "Update": "Cập nhập",
+        "Save_Change": "Lưu thay đổi",
+        "Delete": "Xoá",
+        "Analyzing": "Tiến hành phân tích"
+    },
+    "Auth": {
+        "Login": "Đăng Nhập",
+        "Register": "Đăng Ký",
+        "ForgotPassword": {
+            "Name": "Quên mật khẩu?",
+            "Des": "Chúng tôi sẽ gửi liên kết khôi phục mật khẩu đến địa chỉ email bên dưới",
+            "Button": "Gửi mail khôi phục"
+        },
+        "Alert": {
+            "Welcome": "Chào mừng đến với FinFree",
+            "WeHaveSentAResetPasswordEmail": "Chúng tôi đã gửi cho bạn một email có liên kết đặt lại mật khẩu. \nVui lòng kiểm tra hộp thư của bạn!",
+            "WeHaveSentAVerificationEmail": "Chúng tôi đã gửi cho bạn một email có liên kết xác minh email. \nVui lòng kiểm tra hộp thư của bạn!",
+            "SuccessfulRegistration": "Đăng ký tài khoản thành công",
+            "EmailNotVerify": "Địa chỉ email chưa được xác minh",
+            "SendEmailVerify": "Xin chào @username!\nBạn có muốn chúng tôi gửi email xác minh đến địa chỉ email của bạn không?"
+        },
+        "Error": {
+            "LoginFailed": "Đăng Nhập Thất Bại!",
+            "UserCancelledLoginGoogle": "Bạn đã huỷ đăng nhập bằng Google",
+            "CantLauchOurTerm": "Không thể mở chính sách và điều khoản của chúng tôi. Vui lòng thử lại.",
+            "TokenInvalid": "Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại!"
+        }
+    },
+    "Contacts": {},
+    "Articles": {
+        "Tag": "Thẻ"
+    },
+    "Notes": {}
+}

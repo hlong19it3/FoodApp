@@ -1,0 +1,56 @@
+{
+    "CurrentUnit": "$",
+    "Onboaring": {
+        "Title_1": "Welcome.",
+        "Description_1": "Let's set goals, manage, save, invest and achieve financial freedom together",
+        "Title_2": "Modern Analytical Charts",
+        "Description_2": "Easily track Income and Expense with modern detailed charts",
+        "Title_3": "Easy Search",
+        "Description_3": "Search past transactions with smart filter for more accurate and faster results",
+        "Title_4": "High Security",
+        "Description_4": "Secure your information easily with FinFree's wide range of features"
+    },
+    "Navigation": {
+        "Home": "Home",
+        "Wallets": "Ví tiền",
+        "Notes": "Ghi chú",
+        "More": "Cài đặt"
+    },
+    "Button": {
+        "Save": "Lưu lại",
+        "Cancel": "Huỷ bỏ",
+        "Yes": "Đồng ý",
+        "Update": "Cập nhập",
+        "Save_Change": "Lưu thay đổi",
+        "Delete": "Xoá",
+        "Analyzing": "Tiến hành phân tích"
+    },
+    "Auth": {
+        "Login": "Login",
+        "Register": "Register",
+        "ForgotPassword": {
+            "Name": "Forgot Password?",
+            "Des": "We will send a password recovery link to the email address below",
+            "Button": "Send Link Recovery"
+        },
+        "Alert": {
+            "Welcome": "Welcome to FinFree",
+            "WeHaveSentAResetPasswordEmail": "We have sent you an email with a password reset link. \nPlease check your mailbox!",
+            "WeHaveSentAVerificationEmail": "We have sent you an email with an email verification link. \nPlease check your mailbox",
+            "SuccessfulRegistration": "Successful account registration",
+            "EmailNotVerify": "Email address is not verify",
+            "SendEmailVerify": "Hi @username!\nWould you like us to send a verification email to your email address?"
+        },
+        "Error": {
+            "LoginFailed": "Đăng Nhập Thất Bại!",
+            "UserCancelledLoginGoogle": "User has cancelled login with google",
+            "CantLauchOurTerm": "Không thể mở chính sách và điều khoản của chúng tôi. Vui lòng thử lại.",
+            "TokenInvalid": "Login session has expired. Please log in again!"
+        }
+    },
+    "Contacts": {},
+    "Articles": {
+        "Tag": "Thẻ"
+    },
+    "Notes": {}
+}
