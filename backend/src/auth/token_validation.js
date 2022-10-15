@@ -1,9 +1,9 @@
 const { verify } = require("jsonwebtoken");
 
 const checkToken = (req, res, next) => {
-  let token = req.get("authorization");
-  if (token) {
-    token = token.slice(7);
+  let authHeader = req.get("authorization");
+  if (authHeader) {
+    const token = authHeader.split(" ")[1];
     verify(token, "shhhh", (err, decoded) => {
       if (err) {
         res.json({ msg: "Invalid token" });

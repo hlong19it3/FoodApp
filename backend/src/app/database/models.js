@@ -280,6 +280,10 @@ const User = sequelize.define(
     avatar: {
       type: DataTypes.STRING,
     },
+    refresh_token: {
+      type: DataTypes.STRING(2000),
+      allowNull: true,
+    },
     created_at: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
@@ -359,6 +363,9 @@ Restaurant.hasMany(Order, {
 Restaurant.hasMany(Voucher, {
   foreignKey: "restaurant_id",
 });
+
+// Sync all tables in database
+// sequelize.sync({ force: true });
 
 module.exports = {
   sequelize,
