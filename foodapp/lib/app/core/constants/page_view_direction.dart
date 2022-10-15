@@ -1,0 +1,1 @@
+enum PageViewDirection { Next, Back }
