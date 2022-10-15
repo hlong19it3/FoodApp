@@ -33,7 +33,7 @@ class HttpResponse<T> {
 
 class HttpHelper {
   static final _options = BaseOptions(
-    baseUrl: "http://localhost:3000/api/",
+    baseUrl: "http://192.168.1.7:3000/api/",
     connectTimeout: 1000,
     receiveTimeout: 1000,
   );

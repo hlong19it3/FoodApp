@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:foodapp/app/core/services/stores/box.storage.dart';
 
 import '../../modules/auth/controllers/auth.controller.dart';
 import '../services/stores/secure.storage.dart';
@@ -26,7 +27,7 @@ class TokenInterceptor extends QueuedInterceptorsWrapper {
 
     debugPrint("--[HTTP $method]--: ${options.uri}");
     await _checkTokenExpired();
-    _accessToken = await SecureStorage.read(key: SecureKey.token);
+    _accessToken = await KeyStorage.readString(key: KeyKey.token);
     options.headers.addAll({
       HttpHeaders.authorizationHeader: "${AppKeys.TOKEN_TYPE} $_accessToken",
       'platform': 'mobile',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodapp/app/modules/auth/controllers/auth.controller.dart';
 import 'package:get/get.dart';
 
 import '../controllers/home.controller.dart';
@@ -8,6 +9,33 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Text("Home"));
+    return Scaffold(
+      appBar: AppBar(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Text("Home"),
+          SizedBox(
+            width: Get.width,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: InkWell(
+                      onTap: () => AuthController.to.logout(),
+                      child: const Text("Logout"),
+                    )),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

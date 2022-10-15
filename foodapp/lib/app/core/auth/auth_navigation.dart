@@ -1,3 +1,4 @@
+import 'package:foodapp/app/core/services/stores/box.storage.dart';
 import 'package:get/get.dart';
 
 import '../../routes/app_pages.dart';
@@ -59,7 +60,7 @@ class AuthNavigation {
     if (await SecureStorage.read(key: SecureKey.isWelcome) == null) {
       return NavigationEnum.welcome;
     } else if (await SecureStorage.read(key: SecureKey.email) == null ||
-        await SecureStorage.read(key: SecureKey.token) == null) {
+        await KeyStorage.readString(key: KeyKey.token) == null) {
       return NavigationEnum.login;
     }
     return NavigationEnum.home;

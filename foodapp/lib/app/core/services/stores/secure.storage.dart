@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-enum SecureKey { isWelcome, id, email, token, refreshToken, isFingerPrint }
+enum SecureKey { isWelcome, id, email, isFingerPrint }
 
 class SecureStorage {
   static const storage = FlutterSecureStorage(
