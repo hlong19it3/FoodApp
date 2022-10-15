@@ -10,5 +10,6 @@ router.get("/auth/users", checkToken, loginController.showUsers);
 router.post("/auth/login", loginController.login);
 
 router.get("/", controller.index);
+router.get("/init", controller.initDatabase);
 
 module.exports = router;
