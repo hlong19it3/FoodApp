@@ -1,8 +1,16 @@
-### this is our webapp
-### back end
+## Install Mysql for docker
 
-### command start server
+`docker pull mysql`
 
-```
-npm start
-```
+## Init DataBase
+
+### With Cmd (latest mysql version)
+
+`docker run --name foodapp -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD -d mysql`
+
+### With cmd and docker-compose.yml file (recommended)
+
+`docker compose up dev-db - d`
+
+## Run app
+`npm start`

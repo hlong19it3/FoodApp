@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  dev:
+    image: mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_DB: foodapp
+      MYSQL_ROOT_USER: root
+      MYSQL_ALLOW_EMPTY_PASSWORD:
+    networks:
+      - dacn
+
+networks:
+  dacn:
