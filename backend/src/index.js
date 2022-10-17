@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const app = express();
 const handlebar = require("express-handlebars");
+const md5 = require("md5");
 const port = 3000;
 
 app.use(
@@ -28,6 +29,7 @@ app.set("views", path.join(__dirname, "./views"));
 const route = require("./routes/route");
 route(app);
 
+console.log(md5("12345"));
 // run
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);

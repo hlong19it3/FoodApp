@@ -129,13 +129,13 @@ const OrderDetail = sequelize.define(
     amount: {
       type: DataTypes.INTEGER,
     },
-    created_at: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
+    // created_at: {
+    //   type: DataTypes.DATE,
+    //   defaultValue: DataTypes.NOW,
+    // },
   },
   {
-    timestamps: false,
+    timestamps: true,
   }
 );
 
@@ -165,13 +165,13 @@ const Order = sequelize.define(
     order_status: {
       type: DataTypes.INTEGER,
     },
-    created_at: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
+    // created_at: {
+    //   type: DataTypes.DATE,
+    //   defaultValue: DataTypes.NOW,
+    // },
   },
   {
-    timestamps: false,
+    timestamps: true,
   }
 );
 
@@ -261,13 +261,14 @@ const User = sequelize.define(
     },
     password: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     status: {
       type: DataTypes.TINYINT,
     },
-    registration_time: {
-      type: DataTypes.DATE,
-    },
+    // registration_time: {
+    //   type: DataTypes.DATE,
+    // },
     last_action: {
       type: DataTypes.DATE,
     },
@@ -284,13 +285,13 @@ const User = sequelize.define(
       type: DataTypes.STRING(2000),
       allowNull: true,
     },
-    created_at: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
+    // created_at: {
+    //   type: DataTypes.DATE,
+    //   defaultValue: DataTypes.NOW,
+    // },
   },
   {
-    timestamps: false,
+    timestamps: true,
   }
 );
 
