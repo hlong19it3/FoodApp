@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const app = express();
 const handlebar = require("express-handlebars");
+const md5 = require("md5");
 const port = 3000;
 
 app.use(
