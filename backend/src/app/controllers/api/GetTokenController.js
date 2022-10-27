@@ -1,6 +1,6 @@
 const { sequelize, User } = require("../../database/models");
 const { verify } = require("jsonwebtoken");
-const { generateToken, updateRefreshToken } = require("./LoginController");
+const { generateToken, updateRefreshToken } = require("./SignInController");
 
 const getToken = async (req, res) => {
   const refreshToken = req.body.refreshToken;
@@ -16,8 +16,10 @@ const getToken = async (req, res) => {
 
   try {
     verify(refreshToken, "refresh");
+    //create new accessToken and refreshToken
     const tokens = generateToken(user);
-    updateRefreshToken(user.email, user.password, tokens.refreshToken);
+    //save new refreshToken to database
+    updateRefreshToken(user.email, tokens.refreshToken);
     res.json(tokens);
   } catch (error) {
     console.log(error);

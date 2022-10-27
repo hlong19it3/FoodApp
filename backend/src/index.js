@@ -29,7 +29,6 @@ app.set("views", path.join(__dirname, "./views"));
 const route = require("./routes/route");
 route(app);
 
-console.log(md5("12345"));
 // run
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);

@@ -4,22 +4,47 @@ const md5 = require("md5");
 
 //Generate accessToken and refreshToken
 const generateToken = (payload) => {
-  const { email, password } = payload;
-  const accessToken = sign({ email, password }, "shhhh", {
-    expiresIn: "24h",
-  });
-  const refreshToken = sign({ email, password }, "refresh", {
+  const {
+    role,
+    first_name,
+    last_name,
+    main_address,
+    birthday,
+    gender,
+    email,
+    phone,
+    status,
+    avatar,
+  } = payload;
+  const accessToken = sign(
+    {
+      role,
+      first_name,
+      last_name,
+      main_address,
+      birthday,
+      gender,
+      email,
+      phone,
+      status,
+      avatar,
+    },
+    "shhhh",
+    {
+      expiresIn: "24h",
+    }
+  );
+  const refreshToken = sign({ email }, "refresh", {
     expiresIn: "2 days",
   });
   return { accessToken, refreshToken };
 };
 
-//Update refreshToken
-const updateRefreshToken = async (email, encryptedPassword, refreshToken) => {
+//Update and Save refreshToken to database
+const updateRefreshToken = async (email, refreshToken) => {
   const userCollection = await User.findAll({
     where: {
       email: `${email}`,
-      password: `${encryptedPassword}`,
     },
   });
   // console.log(userCollection);
@@ -29,7 +54,6 @@ const updateRefreshToken = async (email, encryptedPassword, refreshToken) => {
       {
         where: {
           email: email,
-          password: encryptedPassword,
         },
       }
     );
@@ -42,18 +66,19 @@ const login = async (req, res) => {
   const { email, password } = req.body;
   const encryptedPassword = md5(password);
   //check data
-  const userCollection = await User.findAll({
+  const userCollection = await User.findOne({
     where: {
       email: `${email}`,
       password: `${encryptedPassword}`,
     },
   });
   //login
-  if (userCollection && userCollection.length > 0) {
+  if (userCollection) {
     // userCollection.password = undefined;
 
     const tokens = generateToken(userCollection);
-    updateRefreshToken(email, encryptedPassword, tokens.refreshToken);
+    updateRefreshToken(userCollection.email, tokens.refreshToken);
+    // console.log(tokens.accessToken);
     return res.status(200).json({
       msg: "Login successfully",
       tokens,
