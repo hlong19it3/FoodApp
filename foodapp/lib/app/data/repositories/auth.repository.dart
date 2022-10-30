@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:foodapp/app/core/domain/entities/failure.entity.dart';
-import 'package:foodapp/app/domain/entities/user.entity.dart';
+import 'package:foodapp/app/modules/auth/domain/entity/user.entity.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/repositories/auth_repository.dart';

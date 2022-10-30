@@ -3,19 +3,18 @@ import 'package:foodapp/generated/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../generated/locales.g.dart';
-import '../../../core/utils/app_validations.dart';
-import '../../../core/values/app_colors.dart';
-import '../../../core/widgets/app_button.dart';
-import '../../../core/widgets/app_input.dart';
-import '../../../core/widgets/app_input_icon.dart';
-import '../../../core/widgets/app_logo.dart';
-import '../../../core/widgets/app_svg_picture.widget.dart';
-import '../../../core/widgets/appname.widget.dart';
-import '../../../core/widgets/dismis_keyboard.widget.dart';
-import '../../../core/widgets/outline_icon_button.widget.dart';
-import '../../../core/widgets/spacer.dart';
-import '../../../routes/app_pages.dart';
+import '../../../../../generated/locales.g.dart';
+import '../../../../core/utils/app_validations.dart';
+import '../../../../core/values/app_colors.dart';
+import '../../../../core/widgets/app_button.dart';
+import '../../../../core/widgets/app_input.dart';
+import '../../../../core/widgets/app_input_icon.dart';
+import '../../../../core/widgets/app_logo.dart';
+import '../../../../core/widgets/app_svg_picture.widget.dart';
+import '../../../../core/widgets/appname.widget.dart';
+import '../../../../core/widgets/dismis_keyboard.widget.dart';
+import '../../../../core/widgets/spacer.dart';
+import '../../../../routes/app_pages.dart';
 import '../controllers/login.controller.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -83,7 +82,12 @@ class LoginView extends GetView<LoginController> {
                             const VSpacer(5),
                             _buildTextNavigation(),
                             const VSpacer(20),
-                            _buildLoginButton(),
+                            AppButton(
+                              text: LocaleKeys.Auth_Login.tr,
+                              onPress: () {
+                                controller.loginWithEmail();
+                              },
+                            ),
                           ],
                         ),
                       )
@@ -142,7 +146,12 @@ class LoginView extends GetView<LoginController> {
           const VSpacer(5),
           _buildTextNavigation(),
           const VSpacer(20),
-          _buildLoginButton(),
+          AppButton(
+            text: LocaleKeys.Auth_Login.tr,
+            onPress: () {
+              controller.loginWithEmail();
+            },
+          ),
         ],
       ),
     );
@@ -173,13 +182,10 @@ class LoginView extends GetView<LoginController> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          InkWell(
-            onTap: () => Get.toNamed(Routes.FORGOT_PASSWORD),
-            child: Text(
-              LocaleKeys.Auth_ForgotPassword_Name.tr,
-              style: const TextStyle(
-                fontWeight: FontWeight.w400,
-              ),
+          Text(
+            LocaleKeys.Auth_ForgotPassword_Name.tr,
+            style: const TextStyle(
+              fontWeight: FontWeight.w400,
             ),
           ),
           InkWell(
@@ -194,26 +200,6 @@ class LoginView extends GetView<LoginController> {
           )
         ],
       ),
-    );
-  }
-
-  Widget _buildLoginButton() {
-    return Row(
-      children: [
-        Expanded(
-          child: AppButton(
-            text: LocaleKeys.Auth_Login.tr,
-            onPress: () {
-              controller.loginWithEmail();
-            },
-          ),
-        ),
-        const HSpacer(5),
-        OutlineIconButton(
-          icon: Assets.icons.logoGoogle,
-          onPress: () => controller.signInWithGoogle(),
-        ),
-      ],
     );
   }
 

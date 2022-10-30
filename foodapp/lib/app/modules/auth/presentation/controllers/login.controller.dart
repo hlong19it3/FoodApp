@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:foodapp/app/core/services/stores/box.storage.dart';
 import 'package:get/get.dart';
 
-import '../../../../generated/locales.g.dart';
-import '../../../core/services/stores/secure.storage.dart';
-import '../../../core/utils/app_loading.dart';
-import '../../../core/utils/app_validations.dart';
-import '../../../domain/entities/user.entity.dart';
-import '../../../domain/usecases/auth.usecase.dart';
-import '../../../routes/app_pages.dart';
+import '../../../../../generated/locales.g.dart';
+import '../../../../core/services/stores/secure.storage.dart';
+import '../../../../core/utils/app_loading.dart';
+import '../../../../core/utils/app_validations.dart';
+import '../../domain/entity/user.entity.dart';
+import '../../../../domain/usecases/auth.usecase.dart';
+import '../../../../routes/app_pages.dart';
 
 enum UserAuthEnum { email, password }
 

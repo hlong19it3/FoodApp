@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-import '../../../core/utils/app_loading.dart';
-import '../../../core/values/app_data.dart';
+import '../../../../core/utils/app_loading.dart';
 import 'auth.controller.dart';
 
 class RegisterController extends GetxController {
@@ -12,7 +10,6 @@ class RegisterController extends GetxController {
 
   RxBool isEnabledButton = false.obs;
   RxBool isCheckForm = false.obs;
-
 
   void changeShowConfirmPwd() {
     isShowConfirmPwd.value = !isShowConfirmPwd.value;
@@ -42,10 +39,6 @@ class RegisterController extends GetxController {
   }
 
   void launchOurTermAndPolicies() async {
-    try {
-      await launchUrl(AppData.ourTermsURL);
-    } catch (e) {
-      AppLoading.error("Can't lauch Our Term. Please try again.");
-    }
+    AppLoading.error("Can't lauch Our Term. Please try again.");
   }
 }

@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../../core/auth/auth_navigation.dart';
+import '../../../../core/auth/auth_navigation.dart';
 import '../controllers/auth.controller.dart';
 
 class AuthBinding extends Bindings {

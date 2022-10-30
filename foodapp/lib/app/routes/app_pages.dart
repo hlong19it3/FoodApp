@@ -1,15 +1,14 @@
 import 'package:get/get.dart';
 
-import '../modules/auth/bindings/auth.binding.dart';
-import '../modules/auth/bindings/forgot_password.binding.dart';
-import '../modules/auth/bindings/login.binding.dart';
-import '../modules/auth/bindings/onboaring.binding.dart';
-import '../modules/auth/bindings/register.binding.dart';
-import '../modules/auth/views/auth.view.dart';
-import '../modules/auth/views/forgot_password.view.dart';
-import '../modules/auth/views/login.view.dart';
-import '../modules/auth/views/onboaring.view.dart';
-import '../modules/auth/views/register.view.dart';
+import '../modules/auth/presentation/bindings/auth.binding.dart';
+import '../modules/auth/presentation/bindings/forgot_password.binding.dart';
+import '../modules/auth/presentation/bindings/login.binding.dart';
+import '../modules/auth/presentation/bindings/onboaring.binding.dart';
+import '../modules/auth/presentation/bindings/register.binding.dart';
+import '../modules/auth/presentation/views/auth.view.dart';
+import '../modules/auth/presentation/views/login.view.dart';
+import '../modules/auth/presentation/views/onboaring.view.dart';
+import '../modules/auth/presentation/views/register.view.dart';
 import '../modules/home/bindings/home.binding.dart';
 import '../modules/home/views/home.view.dart';
 
@@ -40,20 +39,10 @@ class AppPages {
       binding: RegisterBinding(),
     ),
     GetPage(
-      name: Routes.FORGOT_PASSWORD,
-      page: () => const ForgotPasswordView(),
-      binding: ForgotPasswordBinding(),
-    ),
-    ////////////
-    GetPage(
       name: Routes.HOME,
       page: () => const HomeView(),
       binding: HomeBinding(),
     ),
 
-    GetPage(
-      name: Routes.NOT_FOUND,
-      page: () => const HomeView(),
-    ),
   ];
 }
