@@ -1,10 +1,12 @@
 const { sequelize, User } = require("../../database/models");
 const { sign } = require("jsonwebtoken");
 const md5 = require("md5");
+require("dotenv").config();
 
 //Generate accessToken and refreshToken
 const generateToken = (payload) => {
   const {
+    id,
     role,
     first_name,
     last_name,
@@ -18,6 +20,7 @@ const generateToken = (payload) => {
   } = payload;
   const accessToken = sign(
     {
+      id,
       role,
       first_name,
       last_name,
@@ -29,12 +32,12 @@ const generateToken = (payload) => {
       status,
       avatar,
     },
-    "shhhh",
+    process.env.JWT_SECRET,
     {
       expiresIn: "24h",
     }
   );
-  const refreshToken = sign({ email }, "refresh", {
+  const refreshToken = sign({ email }, process.env.JWT_REFRESH_SECRET, {
     expiresIn: "2 days",
   });
   return { accessToken, refreshToken };
