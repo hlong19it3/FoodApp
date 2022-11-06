@@ -1,7 +1,7 @@
 import '../../../generated/assets.gen.dart';
 
 class AppData {
-  static String name = "Food App";
+  static String name = "Ninja Food";
 
-  static String logo = Assets.images.logo.path;
+  static String logo = Assets.images.logo;
 }

@@ -3,10 +3,9 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:foodapp/app/core/services/stores/box.storage.dart';
 
 import '../../modules/auth/presentation/controllers/auth.controller.dart';
-import '../services/stores/secure.storage.dart';
+import '../services/stores/box.storage.dart';
 import '../values/app_keys.dart';
 
 class TokenInterceptor extends QueuedInterceptorsWrapper {

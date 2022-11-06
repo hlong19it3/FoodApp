@@ -2826,10 +2826,16 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/logo.png
-  AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
+  /// File path: assets/images/congrats.svg
+  String get congrats => 'assets/images/congrats.svg';
+
+  /// File path: assets/images/logo.svg
+  String get logo => 'assets/images/logo.svg';
 
   $AssetsImagesOnboaringGen get onboaring => const $AssetsImagesOnboaringGen();
+
+  /// File path: assets/images/splash.svg
+  String get splash => 'assets/images/splash.svg';
 }
 
 class $AssetsLocalesGen {
@@ -2845,14 +2851,11 @@ class $AssetsLocalesGen {
 class $AssetsImagesOnboaringGen {
   const $AssetsImagesOnboaringGen();
 
-  /// File path: assets/images/onboaring/choice.svg
-  String get choice => 'assets/images/onboaring/choice.svg';
+  /// File path: assets/images/onboaring/cake.svg
+  String get cake => 'assets/images/onboaring/cake.svg';
 
-  /// File path: assets/images/onboaring/delivery.svg
-  String get delivery => 'assets/images/onboaring/delivery.svg';
-
-  /// File path: assets/images/onboaring/order.svg
-  String get order => 'assets/images/onboaring/order.svg';
+  /// File path: assets/images/onboaring/food.svg
+  String get food => 'assets/images/onboaring/food.svg';
 }
 
 class Assets {
