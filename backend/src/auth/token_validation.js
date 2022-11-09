@@ -7,14 +7,14 @@ const checkToken = async (req, res, next) => {
   try {
     const dataObj = verify(inputToken, process.env.JWT_SECRET);
     // find user in db
-    const foundUser = await User.findOne({
+    const currentUser = await User.findOne({
       where: {
         id: dataObj.id,
       },
     });
-    if (foundUser) {
+    if (currentUser) {
       // save role of user
-      req.role = foundUser.role;
+      req.user = currentUser;
       next();
       return;
     }
