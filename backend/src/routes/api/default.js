@@ -13,7 +13,9 @@ const { checkToken, isAdmin } = require("../../auth/token_validation");
 router.post("/auth/login", signinController.login);
 router.post("/auth/token", getTokenController.getToken);
 router.post("/signup", signUpController.signUp);
+
 router.get("/auth/profile", checkToken, profileController.myProfile);
+router.put("/auth/update-profile", checkToken, profileController.updateProfile);
 
 router.post("/auth/signout", checkToken, signOutController.signOut);
 // test middleware for role Admin and User
