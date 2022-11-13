@@ -1,8 +1,28 @@
 const connection = require('../AppDatabase')
-const [Restaurant] = require('../models')
+const { Restaurant } = require('../models')
 
-async function insert(restaurant){
-    await Restaurant.create(restaurant)
+function insert(restaurant) {
+	return Restaurant.findOrCreate({
+		where: { user_id: restaurant.user_id },
+		defaults: {
+			name: restaurant.name,
+			address: restaurant.address,
+		},
+	})
 }
 
-module.exports = {insert}
+async function update(restaurant) {
+	return await Restaurant.update(
+		{
+			name: restaurant.name,
+			address: restaurant.address,
+		},
+		{
+			where: {
+				id: restaurant.id,
+			},
+		}
+	)
+}
+
+module.exports = { insert, update }
