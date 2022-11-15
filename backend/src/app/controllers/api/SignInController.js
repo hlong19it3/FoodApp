@@ -67,12 +67,12 @@ const updateRefreshToken = async (email, refreshToken) => {
 //Login
 const login = async (req, res) => {
   const { email, password } = req.body;
-  const encryptedPassword = md5(password);
+  // const encryptedPassword = md5(password);
   //check data
   const userCollection = await User.findOne({
     where: {
-      email: `${email}`,
-      password: `${encryptedPassword}`,
+      email: email,
+      password: md5(password),
     },
   });
   //login

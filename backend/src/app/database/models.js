@@ -217,6 +217,7 @@ const Restaurant = sequelize.define(
     },
     rating: {
       type: DataTypes.FLOAT,
+      defaultValue: 0
     },
   },
   {

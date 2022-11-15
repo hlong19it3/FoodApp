@@ -1,20 +1,14 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 const api = require('./api')
 const webRoute = require('./web')
 
-var bodyParser = require('body-parser')
+function route(app) {
+	// api route
+	app.use('/api', api)
 
-// create application/json parser
-var jsonParser = bodyParser.json()
-
-function route(app){
- 
-    // api route
-    app.use('/api', api)
-
-    // web route
-    app.use("/", webRoute)
+	// web route
+	app.use('/', webRoute)
 }
 
-module.exports = route;
+module.exports = route
