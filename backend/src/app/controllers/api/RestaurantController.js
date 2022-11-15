@@ -1,4 +1,5 @@
 const restaurantDao = require('../../database/dao/RestaurantDao')
+const { isEmpty, isNotEmpty } = require('../../utils/checkUtils')
 
 //
 
@@ -42,14 +43,79 @@ const update = async (req, res) => {
 const selectById = async (req, res) => {
 	const id = req.params.id
 	if (id) {
-		console.log(id)
+		const restaurant = await restaurantDao.selectById(id)
+		if (isNotEmpty(restaurant)) {
+			res.status(200).json({
+				code: 1,
+				message: 'Result',
+				restaurant,
+			})
+		} else {
+			res.status(200).json({
+				code: 0,
+				message: 'Does not exist',
+				restaurant,
+			})
+		}
 	}
 }
 
 const selectUserId = async (req, res) => {
 	const id = req.params.id
-	if (typeof id === 'number' && Math.floor(id) === id) {
+	const restaurant = await restaurantDao.selectUserId(id)
+	if (isNotEmpty(restaurant)) {
+		res.status(200).json({
+			code: 1,
+			message: 'Result',
+			restaurant,
+		})
+	} else {
+		res.status(200).json({
+			code: 0,
+			message: 'Does not exist',
+			restaurant,
+		})
 	}
 }
 
-module.exports = { create, update, selectById, selectUserId }
+const deleteRestaurant = async (req, res) => {
+	const user_id = req.user.id
+	restaurantDao.deleteRestaurant(user_id).then(
+		(count) => {
+			if (count > 0) {
+				res.status(200).json({
+					code: 1,
+					message: 'Delete success!',
+				})
+			} else {
+				res.status(200).json({
+					code: 0,
+					message: 'Your store could not be found!',
+				})
+			}
+		},
+		(err) => {
+			console.log(err)
+			res.status(500).json({
+				message: 'Internal server error',
+			})
+		}
+	)
+}
+
+const search = (req, res) => {
+	restaurantDao.search(req.params.keyword).then(
+		(value) => {
+			console.log(value)
+			res.status(200).json({ value })
+		},
+		(err) => {
+			console.log(err)
+			res.status(500).json({
+				message: 'Internal server error',
+			})
+		}
+	)
+}
+
+module.exports = { create, update, selectById, selectUserId, deleteRestaurant, search }

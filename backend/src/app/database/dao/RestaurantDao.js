@@ -1,5 +1,6 @@
 const connection = require('../AppDatabase')
 const { Restaurant } = require('../models')
+const { Op } = require('sequelize')
 
 function insert(restaurant) {
 	return Restaurant.findOrCreate({
@@ -25,4 +26,38 @@ async function update(restaurant) {
 	)
 }
 
-module.exports = { insert, update }
+function selectById(id) {
+	return Restaurant.findAll({
+		where: {
+			id: id,
+		},
+	})
+}
+
+function selectUserId(user_id) {
+	return Restaurant.findAll({
+		where: {
+			user_id: user_id,
+		},
+	})
+}
+
+async function deleteRestaurant(user_id) {
+	return await Restaurant.destroy({
+		where: {
+			user_id: user_id,
+		},
+	})
+}
+
+async function search(keyword) {
+	return await Restaurant.findAll({
+		where: {
+			name: {
+				[Op.substring]: keyword,
+			},
+		},
+	})
+}
+
+module.exports = { insert, update, selectById, selectUserId, deleteRestaurant, search }
