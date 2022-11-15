@@ -12,6 +12,7 @@ const create = async (req, res) => {
 		address: address,
 	})
 	res.status(200).json({
+		code: 1,
 		created: created,
 		restaurant: restaurant,
 	})
@@ -104,7 +105,7 @@ const deleteRestaurant = async (req, res) => {
 }
 
 const search = (req, res) => {
-	restaurantDao.search(req.params.keyword).then(
+	restaurantDao.search(req.query.keyword).then(
 		(value) => {
 			console.log(value)
 			res.status(200).json({ value })

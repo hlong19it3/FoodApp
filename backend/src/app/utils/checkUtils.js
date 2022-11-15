@@ -5,4 +5,5 @@ function isEmpty(object) {
 function isNotEmpty(object) {
 	return !Object.keys(object).length === 0
 }
+
 module.exports = { isEmpty, isNotEmpty }
