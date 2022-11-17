@@ -2,8 +2,8 @@ class ExampleController {
   // functions
 
   initDatabase(req, res) {
-    const [sequelize] = require("../../database/models");
-    sequelize.sync({ alter: true });
+    const { sequelize } = require("../../database/models");
+    sequelize.sync({ force: true });
     res.send("done");
   }
 
