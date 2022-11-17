@@ -9,9 +9,6 @@ const Address = sequelize.define(
       autoIncrement: true,
       primaryKey: true,
     },
-    customer_id: {
-      type: DataTypes.INTEGER,
-    },
     address: {
       type: DataTypes.STRING,
     },
@@ -217,7 +214,7 @@ const Restaurant = sequelize.define(
     },
     rating: {
       type: DataTypes.FLOAT,
-      defaultValue: 0
+      defaultValue: 0,
     },
   },
   {
