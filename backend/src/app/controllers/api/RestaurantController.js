@@ -65,6 +65,7 @@ const selectUserId = async (req, res) => {
 	const id = req.params.id
 	const restaurant = await restaurantDao.selectUserId(id)
 	if (isNotEmpty(restaurant)) {
+		console.log(restaurant.id)
 		res.status(200).json({
 			code: 1,
 			message: 'Result',
@@ -104,7 +105,7 @@ const deleteRestaurant = async (req, res) => {
 	)
 }
 
-const search = (req, res) => {
+const search = async (req, res) => {
 	restaurantDao.search(req.query.keyword).then(
 		(value) => {
 			console.log(value)

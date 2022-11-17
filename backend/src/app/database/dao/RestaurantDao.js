@@ -35,10 +35,11 @@ function selectById(id) {
 }
 
 function selectUserId(user_id) {
-	return Restaurant.findAll({
+	return Restaurant.findOne({
 		where: {
 			user_id: user_id,
 		},
+		raw: true,
 	})
 }
 
