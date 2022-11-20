@@ -1,13 +1,13 @@
 const menuDao = require('../../database/dao/MenuDao')
 const restaurantDao = require('../../database/dao/RestaurantDao')
 const { isEmpty, isNotEmpty } = require('../../utils/checkUtils')
+const { statusCode } = require('../../common/constants')
 
 const create = async (req, res) => {
 	const user = req.user
 	const restaurant = await restaurantDao.selectUserId(user.id)
 	if (isEmpty(restaurant)) {
-		res.status(200).json({
-			code: 0,
+		res.status(statusCode.BAD_REQUEST).json({
 			message: 'Restaurant registration is required before performing this function',
 		})
 	} else {
@@ -16,8 +16,7 @@ const create = async (req, res) => {
 			restaurant_id: restaurant.id,
 			description: description,
 		})
-		res.status(200).json({
-			code: 1,
+		res.status(statusCode.OK).json({
 			created: created,
 			menu,
 		})
@@ -33,34 +32,31 @@ const update = async (req, res) => {
 				menuDao.update(value.id, menu).then(
 					(count) => {
 						if (count != 0) {
-							res.status(200).json({
-								code: 1,
+							res.status(statusCode.OK).json({
 								message: 'Update success!',
 							})
 						} else {
-							res.status(200).json({
-								code: 0,
+							res.status(statusCode.BAD_REQUEST).json({
 								message: 'Update failed!',
 							})
 						}
 					},
 					(err) => {
 						console.log(err)
-						res.status(500).json({
+						res.status(statusCode.SERVER_ERROR).json({
 							message: 'Internal server error',
 						})
 					}
 				)
 			} else {
-				res.status(200).json({
-					code: 0,
+				res.status(statusCode.BAD_REQUEST).json({
 					message: 'Restaurant registration is required before performing this function',
 				})
 			}
 		},
 		(err) => {
 			console.log(err)
-			res.status(500).json({
+			res.status(statusCode.SERVER_ERROR).json({
 				message: 'Internal server error',
 			})
 		}
@@ -72,21 +68,19 @@ const selectById = async (req, res) => {
 	if (id) {
 		await menuDao.selectById(id).then(
 			(menu) => {
-				res.status(200).json({
-					code: 1,
+				res.status(statusCode.OK).json({
 					menu,
 				})
 			},
 			(err) => {
 				console.log(err)
-				res.status(500).json({
+				res.status(statusCode.SERVER_ERROR).json({
 					message: 'Internal server error',
 				})
 			}
 		)
 	} else {
-		res.status(200).json({
-			code: 1,
+		res.status(statusCode.BAD_REQUEST).json({
 			message: 'parameter id is empty',
 		})
 	}
@@ -97,21 +91,19 @@ const selectByRestaurantId = async (req, res) => {
 	if (restaurant_id) {
 		menuDao.selectByRestaurantId(restaurant_id).then(
 			(menu) => {
-				res.status(200).json({
-					code: 1,
+				res.status(statusCode.OK).json({
 					menu,
 				})
 			},
 			(err) => {
 				console.log(err)
-				res.status(500).json({
+				res.status(statusCode.SERVER_ERROR).json({
 					message: 'Internal server error',
 				})
 			}
 		)
 	} else {
-		res.status(200).json({
-			code: 1,
+		res.status(statusCode.BAD_REQUEST).json({
 			message: 'parameter restaurant_id is empty',
 		})
 	}
@@ -128,42 +120,37 @@ const deleteMenu = async (req, res) => {
 					menuDao.deleteMenu(id).then(
 						(count) => {
 							if (count != 0) {
-								res.status(200).json({
-									code: 1,
+								res.status(statusCode.OK).json({
 									message: 'Delete success!',
 								})
 							} else {
-								res.status(200).json({
-									code: 0,
+								res.status(statusCode.BAD_REQUEST).json({
 									message: 'Delete failed!',
 								})
 							}
 						},
 						(err) => {
 							console.log(err)
-							res.status(500).json({
+							res.status(statusCode.SERVER_ERROR).json({
 								message: 'Internal server error',
 							})
 						}
 					)
 				} else {
-					res.status(200).json({
-						code: 0,
-						message:
-							'Restaurant registration is required before performing this function',
+					res.status(statusCode.BAD_REQUEST).json({
+						message: 'Restaurant registration is required before performing this function',
 					})
 				}
 			},
 			(err) => {
 				console.log(err)
-				res.status(500).json({
+				res.status(statusCode.SERVER_ERROR).json({
 					message: 'Internal server error',
 				})
 			}
 		)
 	} else {
-		res.status(200).json({
-			code: 0,
+		res.status(statusCode.BAD_REQUEST).json({
 			message: 'parameter id is empty',
 		})
 		return

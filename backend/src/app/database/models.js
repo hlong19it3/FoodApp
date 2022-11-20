@@ -19,7 +19,7 @@ const Address = sequelize.define(
 )
 
 const Category = sequelize.define(
-	'Category',
+	'category',
 	{
 		id: {
 			type: DataTypes.INTEGER,
@@ -79,7 +79,7 @@ const Food = sequelize.define(
 )
 
 const Menu = sequelize.define(
-	'Menu',
+	'menu',
 	{
 		id: {
 			type: DataTypes.INTEGER,
@@ -137,7 +137,7 @@ const OrderDetail = sequelize.define(
 )
 
 const Order = sequelize.define(
-	'Order',
+	'order',
 	{
 		id: {
 			type: DataTypes.INTEGER,
@@ -173,7 +173,7 @@ const Order = sequelize.define(
 )
 
 const Rating = sequelize.define(
-	'Rating',
+	'rating',
 	{
 		id: {
 			type: DataTypes.INTEGER,
@@ -196,7 +196,7 @@ const Rating = sequelize.define(
 )
 
 const Restaurant = sequelize.define(
-	'Restaurant',
+	'restaurant',
 	{
 		id: {
 			type: DataTypes.INTEGER,
@@ -223,7 +223,7 @@ const Restaurant = sequelize.define(
 )
 
 const User = sequelize.define(
-	'User',
+	'user',
 	{
 		// Model attributes are defined here
 		id: {
@@ -294,7 +294,7 @@ const User = sequelize.define(
 )
 
 const Voucher = sequelize.define(
-	'Voucher',
+	'voucher',
 	{
 		id: {
 			type: DataTypes.INTEGER,
