@@ -101,7 +101,7 @@ class OnBoaringView extends GetView<OnBoaringController> {
             ? Alignment.bottomLeft
             : Alignment.bottomCenter,
         child: Text(
-          controller.onBoarings[index].description.tr,
+          controller.onBoarings[index].description,
           style: const TextStyle(
             fontStyle: FontStyle.italic,
             fontSize: 16,
@@ -121,7 +121,7 @@ class OnBoaringView extends GetView<OnBoaringController> {
               ? Alignment.bottomLeft
               : Alignment.bottomCenter,
           child: Text(
-            controller.onBoarings[index].title.tr,
+            controller.onBoarings[index].title,
             style: const TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.w500,

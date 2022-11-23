@@ -23,6 +23,7 @@ class LoginController extends GetxController {
   RxBool isShowPwd = false.obs;
   RxBool isValidForm = false.obs;
   RxBool isCheckForm = false.obs;
+  RxBool isSubmitedForm = false.obs;
 
   bool get isCheckValid => isCheckForm.value;
   UserAuthEntity get user => userLogin.value;
@@ -34,6 +35,7 @@ class LoginController extends GetxController {
   }
 
   void onChangeData(UserAuthEnum userAuthEnum, String data) {
+    isCheckForm.value = false;
     switch (userAuthEnum) {
       case UserAuthEnum.email:
         userLogin.update((val) {
@@ -52,15 +54,12 @@ class LoginController extends GetxController {
 
   void checkForm() {
     isCheckForm.value = true;
-    if (AppValidations.email(
-                email: user.email, isCheckField: isCheckForm.value) ==
-            "" &&
-        AppValidations.password(user.password, isCheckForm.value) == "") {
+    if (AppValidations.email(email: user.email) == "" &&
+        AppValidations.password(password: user.password) == "") {
       isValidForm.value = true;
     } else {
       isValidForm.value = false;
     }
-    isCheckForm.value = false;
   }
 
   void getLocalUserData() async {
@@ -70,12 +69,15 @@ class LoginController extends GetxController {
 
   Future<void> loginWithEmail() async {
     isCheckForm.value = true;
-    if (isValidForm.value) {
+    if (isValidForm.value && isSubmitedForm.isFalse) {
+      isSubmitedForm.value = true;
       AppLoading.loading();
       var reponse = await loginUseCase.call(user);
       reponse.fold(
-        (e) =>
-            AppLoading.error(e.message ?? LocaleKeys.Auth_Error_LoginFailed.tr),
+        (e) {
+          AppLoading.error(e.message ?? LocaleKeys.Auth_Error_LoginFailed.tr);
+          isSubmitedForm.value = false;
+        },
         (data) async {
           await SecureStorage.write(key: SecureKey.email, value: user.email);
           await KeyStorage.writeString(

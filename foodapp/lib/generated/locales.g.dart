@@ -16,14 +16,9 @@ class LocaleKeys {
   static const Onboaring_Description_1 = 'Onboaring_Description_1';
   static const Onboaring_Title_2 = 'Onboaring_Title_2';
   static const Onboaring_Description_2 = 'Onboaring_Description_2';
-  static const Onboaring_Title_3 = 'Onboaring_Title_3';
-  static const Onboaring_Description_3 = 'Onboaring_Description_3';
-  static const Onboaring_Title_4 = 'Onboaring_Title_4';
-  static const Onboaring_Description_4 = 'Onboaring_Description_4';
-  static const Navigation_Home = 'Navigation_Home';
-  static const Navigation_Wallets = 'Navigation_Wallets';
-  static const Navigation_Notes = 'Navigation_Notes';
-  static const Navigation_More = 'Navigation_More';
+  static const DioError_Cancel = 'DioError_Cancel';
+  static const DioError_ConnectTimeout = 'DioError_ConnectTimeout';
+  static const DioError_ReceiveTimeout = 'DioError_ReceiveTimeout';
   static const Button_Save = 'Button_Save';
   static const Button_Cancel = 'Button_Cancel';
   static const Button_Yes = 'Button_Yes';
@@ -51,31 +46,20 @@ class LocaleKeys {
   static const Auth_Error_CantLauchOurTerm = 'Auth_Error_CantLauchOurTerm';
   static const Auth_Error_TokenInvalid = 'Auth_Error_TokenInvalid';
   static const Articles_Tag = 'Articles_Tag';
-  static const Navigation_Stats = 'Navigation_Stats';
-  static const DioError_Cancel = 'DioError_Cancel';
-  static const DioError_ConnectTimeout = 'DioError_ConnectTimeout';
-  static const DioError_ReceiveTimeout = 'DioError_ReceiveTimeout';
 }
 
 class Locales {
   static const en = {
-    'CurrentUnit': '\$',
-    'Onboaring_Title_1': 'Welcome.',
+    'CurrentUnit': '₫',
+    'Onboaring_Title_1': 'All your favorites',
     'Onboaring_Description_1':
-        'Let\'s set goals, manage, save, invest and achieve financial freedom together',
-    'Onboaring_Title_2': 'Modern Analytical Charts',
+        'Order from the best local restaurants with easy, on-demand delivery.',
+    'Onboaring_Title_2': 'Choose your food',
     'Onboaring_Description_2':
-        'Easily track Income and Expense with modern detailed charts',
-    'Onboaring_Title_3': 'Easy Search',
-    'Onboaring_Description_3':
-        'Search past transactions with smart filter for more accurate and faster results',
-    'Onboaring_Title_4': 'High Security',
-    'Onboaring_Description_4':
-        'Secure your information easily with FinFree\'s wide range of features',
-    'Navigation_Home': 'Home',
-    'Navigation_Wallets': 'Ví tiền',
-    'Navigation_Notes': 'Ghi chú',
-    'Navigation_More': 'Cài đặt',
+        'Easily find your type of food craving and you’ll get delivery in wide range.',
+    'DioError_Cancel': 'Request to API server was cancelled',
+    'DioError_ConnectTimeout': 'Connection timeout with API server',
+    'DioError_ReceiveTimeout': 'Receive timeout in connection with API server',
     'Button_Save': 'Lưu lại',
     'Button_Cancel': 'Huỷ bỏ',
     'Button_Yes': 'Đồng ý',
@@ -83,48 +67,37 @@ class Locales {
     'Button_Save_Change': 'Lưu thay đổi',
     'Button_Delete': 'Xoá',
     'Button_Analyzing': 'Tiến hành phân tích',
-    'Auth_Login': 'Login',
-    'Auth_Register': 'Register',
-    'Auth_ForgotPassword_Name': 'Forgot Password?',
+    'Auth_Login': 'Đăng Nhập',
+    'Auth_Register': 'Đăng Ký',
+    'Auth_ForgotPassword_Name': 'Quên mật khẩu?',
     'Auth_ForgotPassword_Des':
-        'We will send a password recovery link to the email address below',
-    'Auth_ForgotPassword_Button': 'Send Link Recovery',
-    'Auth_Alert_Welcome': 'Welcome to FinFree',
+        'Chúng tôi sẽ gửi liên kết khôi phục mật khẩu đến địa chỉ email bên dưới',
+    'Auth_ForgotPassword_Button': 'Gửi mail khôi phục',
+    'Auth_Alert_Welcome': 'Chào mừng đến với FinFree',
     'Auth_Alert_WeHaveSentAResetPasswordEmail':
-        'We have sent you an email with a password reset link. \nPlease check your mailbox!',
+        'Chúng tôi đã gửi cho bạn một email có liên kết đặt lại mật khẩu. \nVui lòng kiểm tra hộp thư của bạn!',
     'Auth_Alert_WeHaveSentAVerificationEmail':
-        'We have sent you an email with an email verification link. \nPlease check your mailbox',
-    'Auth_Alert_SuccessfulRegistration': 'Successful account registration',
-    'Auth_Alert_EmailNotVerify': 'Email address is not verify',
+        'Chúng tôi đã gửi cho bạn một email có liên kết xác minh email. \nVui lòng kiểm tra hộp thư của bạn!',
+    'Auth_Alert_SuccessfulRegistration': 'Đăng ký tài khoản thành công',
+    'Auth_Alert_EmailNotVerify': 'Địa chỉ email chưa được xác minh',
     'Auth_Alert_SendEmailVerify':
-        'Hi @username!\nWould you like us to send a verification email to your email address?',
+        'Xin chào @username!\nBạn có muốn chúng tôi gửi email xác minh đến địa chỉ email của bạn không?',
     'Auth_Error_LoginFailed': 'Đăng Nhập Thất Bại!',
-    'Auth_Error_UserCancelledLoginGoogle':
-        'User has cancelled login with google',
+    'Auth_Error_UserCancelledLoginGoogle': 'Bạn đã huỷ đăng nhập bằng Google',
     'Auth_Error_CantLauchOurTerm':
         'Không thể mở chính sách và điều khoản của chúng tôi. Vui lòng thử lại.',
     'Auth_Error_TokenInvalid':
-        'Login session has expired. Please log in again!',
+        'Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại!',
     'Articles_Tag': 'Thẻ',
   };
   static const vi = {
     'CurrentUnit': '₫',
-    'Onboaring_Title_1': 'Hello.',
+    'Onboaring_Title_1': 'All your favorites',
     'Onboaring_Description_1':
-        'Hãy đặt mục tiêu, quản lý, tiết kiệm, đầu tư và đạt được tự do tài chính cùng nhau',
-    'Onboaring_Title_2': 'Biểu Đồ Phân Tích HIện Đại',
+        'Order from the best local restaurants with easy, on-demand delivery.',
+    'Onboaring_Title_2': 'Choose your food',
     'Onboaring_Description_2':
-        'Dễ dàng theo dõi thu nhập và chi phí với các biểu đồ chi tiết hiện đại',
-    'Onboaring_Title_3': 'Tìm Kiếm Mọi Thứ',
-    'Onboaring_Description_3':
-        'Tìm kiếm các giao dịch trong quá khứ với Bộ lọc thông minh để có kết quả chính xác và nhanh hơn',
-    'Onboaring_Title_4': 'An Toàn Cao',
-    'Onboaring_Description_4':
-        'Bảo mật thông tin của bạn một cách dễ dàng với phạm vi rộng của các tính năng của Finfree',
-    'Navigation_Home': 'Trang chủ',
-    'Navigation_Stats': 'Phân tích',
-    'Navigation_Notes': 'Ghi chú',
-    'Navigation_More': 'Cài đặt',
+        'Easily find your type of food craving and you’ll get delivery in wide range.',
     'DioError_Cancel': 'Request to API server was cancelled',
     'DioError_ConnectTimeout': 'Connection timeout with API server',
     'DioError_ReceiveTimeout': 'Receive timeout in connection with API server',

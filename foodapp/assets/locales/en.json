@@ -1,0 +1,51 @@
+{
+    "CurrentUnit": "₫",
+    "Onboaring": {
+        "Title_1": "All your favorites",
+        "Description_1": "Order from the best local restaurants with easy, on-demand delivery.",
+        "Title_2": "Choose your food",
+        "Description_2": "Easily find your type of food craving and you’ll get delivery in wide range."
+    },
+    "DioError": {
+        "Cancel": "Request to API server was cancelled",
+        "ConnectTimeout": "Connection timeout with API server",
+        "ReceiveTimeout": "Receive timeout in connection with API server"
+    },
+    "Button": {
+        "Save": "Lưu lại",
+        "Cancel": "Huỷ bỏ",
+        "Yes": "Đồng ý",
+        "Update": "Cập nhập",
+        "Save_Change": "Lưu thay đổi",
+        "Delete": "Xoá",
+        "Analyzing": "Tiến hành phân tích"
+    },
+    "Auth": {
+        "Login": "Đăng Nhập",
+        "Register": "Đăng Ký",
+        "ForgotPassword": {
+            "Name": "Quên mật khẩu?",
+            "Des": "Chúng tôi sẽ gửi liên kết khôi phục mật khẩu đến địa chỉ email bên dưới",
+            "Button": "Gửi mail khôi phục"
+        },
+        "Alert": {
+            "Welcome": "Chào mừng đến với FinFree",
+            "WeHaveSentAResetPasswordEmail": "Chúng tôi đã gửi cho bạn một email có liên kết đặt lại mật khẩu. \nVui lòng kiểm tra hộp thư của bạn!",
+            "WeHaveSentAVerificationEmail": "Chúng tôi đã gửi cho bạn một email có liên kết xác minh email. \nVui lòng kiểm tra hộp thư của bạn!",
+            "SuccessfulRegistration": "Đăng ký tài khoản thành công",
+            "EmailNotVerify": "Địa chỉ email chưa được xác minh",
+            "SendEmailVerify": "Xin chào @username!\nBạn có muốn chúng tôi gửi email xác minh đến địa chỉ email của bạn không?"
+        },
+        "Error": {
+            "LoginFailed": "Đăng Nhập Thất Bại!",
+            "UserCancelledLoginGoogle": "Bạn đã huỷ đăng nhập bằng Google",
+            "CantLauchOurTerm": "Không thể mở chính sách và điều khoản của chúng tôi. Vui lòng thử lại.",
+            "TokenInvalid": "Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại!"
+        }
+    },
+    "Contacts": {},
+    "Articles": {
+        "Tag": "Thẻ"
+    },
+    "Notes": {}
+}

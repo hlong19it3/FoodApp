@@ -10,7 +10,6 @@ import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/app_input.dart';
 import '../../../../core/widgets/app_input_icon.dart';
 import '../../../../core/widgets/app_logo.dart';
-import '../../../../core/widgets/app_svg_picture.widget.dart';
 import '../../../../core/widgets/appname.widget.dart';
 import '../../../../core/widgets/dismis_keyboard.widget.dart';
 import '../../../../core/widgets/spacer.dart';
@@ -28,73 +27,68 @@ class LoginView extends GetView<LoginController> {
             resizeToAvoidBottomInset: false,
             body: AppResponsive(
               mobileScreen: _buildMobile(),
-              desktopScreen: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50),
-                child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            AppLogo(
-                              size: 100,
-                            ),
-                            VSpacer(10),
-                            Text(
-                              "Welcome to",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 20,
-                              ),
-                            ),
-                            VSpacer(10),
-                            AppName(),
-                          ],
-                        ),
-                      ),
-                      const HSpacer(100),
-                      Expanded(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            AppInput(
-                              hintText: "Email Address",
-                              keyboardType: TextInputType.emailAddress,
-                              controller: controller.emailController,
-                              onChanged: (value) => controller.onChangeData(
-                                  UserAuthEnum.email, value),
-                              prefixIconName: Assets.icons.mailOutline,
-                              errorText: AppValidations.email(
-                                email: controller.user.email,
-                                isCheckField: controller.isCheckValid,
-                              ),
-                              maxLength: 32,
-                            ),
-                            const VSpacer(10),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                _buildPasswordField(),
-                                _buildFingerPrintButton(),
-                              ],
-                            ),
-                            const VSpacer(5),
-                            _buildTextNavigation(),
-                            const VSpacer(20),
-                            AppButton(
-                              text: LocaleKeys.Auth_Login.tr,
-                              onPress: () {
-                                controller.loginWithEmail();
-                              },
-                            ),
-                          ],
-                        ),
-                      )
-                    ]),
-              ),
+              desktopScreen: _buildDesktop(),
             )),
       ),
+    );
+  }
+
+  Widget _buildDesktop() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 50),
+      child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              AppLogo(
+                size: 100,
+              ),
+              VSpacer(10),
+              Text(
+                "Welcome to",
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 20,
+                ),
+              ),
+              VSpacer(10),
+              AppName(),
+            ],
+          ),
+        ),
+        const HSpacer(100),
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _buildEmailField(),
+              const VSpacer(10),
+              _buildPasswordField(),
+              const VSpacer(5),
+              _buildTextNavigation(),
+              const VSpacer(20),
+              _buildLoginButton(),
+            ],
+          ),
+        )
+      ]),
+    );
+  }
+
+  Widget _buildEmailField() {
+    return AppInput(
+      hintText: "Email Address",
+      keyboardType: TextInputType.emailAddress,
+      controller: controller.emailController,
+      onChanged: (value) => controller.onChangeData(UserAuthEnum.email, value),
+      prefixIconName: Assets.icons.mailOutline,
+      errorText: AppValidations.email(
+        email: controller.user.email,
+        isCheckField: controller.isCheckValid,
+      ),
+      readOnly: controller.isSubmitedForm.value,
+      maxLength: 32,
     );
   }
 
@@ -105,13 +99,6 @@ class LoginView extends GetView<LoginController> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const VSpacer(50),
-          const Align(
-            alignment: Alignment.centerLeft,
-            child: AppLogo(
-              size: 40,
-            ),
-          ),
-          const VSpacer(10),
           const Text(
             "Welcome to",
             style: TextStyle(
@@ -122,57 +109,22 @@ class LoginView extends GetView<LoginController> {
           const VSpacer(10),
           const AppName(),
           const VSpacer(50),
-          AppInput(
-            hintText: "Email Address",
-            keyboardType: TextInputType.emailAddress,
-            controller: controller.emailController,
-            onChanged: (value) =>
-                controller.onChangeData(UserAuthEnum.email, value),
-            prefixIconName: Assets.icons.mailOutline,
-            errorText: AppValidations.email(
-              email: controller.user.email,
-              isCheckField: controller.isCheckValid,
-            ),
-            maxLength: 32,
-          ),
+          _buildEmailField(),
           const VSpacer(10),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildPasswordField(),
-              _buildFingerPrintButton(),
-            ],
-          ),
+          _buildPasswordField(),
           const VSpacer(5),
           _buildTextNavigation(),
           const VSpacer(20),
-          AppButton(
-            text: LocaleKeys.Auth_Login.tr,
-            onPress: () {
-              controller.loginWithEmail();
-            },
-          ),
+          _buildLoginButton(),
         ],
       ),
     );
   }
 
-  Widget _buildFingerPrintButton() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 10),
-      child: InkWell(
-        onTap: () {},
-        customBorder: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-          child: AppSvgPicture(
-            icon: Assets.icons.fingerPrint,
-            size: 30,
-          ),
-        ),
-      ),
+  Widget _buildLoginButton() {
+    return AppButton(
+      text: LocaleKeys.Auth_Login.tr,
+      onPress: () => controller.loginWithEmail(),
     );
   }
 
@@ -204,30 +156,29 @@ class LoginView extends GetView<LoginController> {
   }
 
   Widget _buildPasswordField() {
-    return Expanded(
-      child: AppInput(
-        hintText: "Your Password",
-        obscureText: !controller.isShowPwd.value,
-        keyboardType: TextInputType.text,
-        onChanged: (value) =>
-            controller.onChangeData(UserAuthEnum.password, value),
-        errorText: AppValidations.password(
-          controller.user.password,
-          controller.isCheckValid,
-        ),
-        prefixIconName: Assets.icons.lockClosedOutline,
-        suffixIcon: InkWell(
-          onTap: () => controller.isShowPwd.value = !controller.isShowPwd.value,
-          customBorder: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              topRight: Radius.circular(15),
-              bottomRight: Radius.circular(15),
-            ),
+    return AppInput(
+      hintText: "Your Password",
+      obscureText: !controller.isShowPwd.value,
+      keyboardType: TextInputType.text,
+      onChanged: (value) =>
+          controller.onChangeData(UserAuthEnum.password, value),
+      errorText: AppValidations.password(
+        password: controller.user.password,
+        isCheckField: controller.isCheckValid,
+      ),
+      readOnly: controller.isSubmitedForm.value,
+      prefixIconName: Assets.icons.lockClosedOutline,
+      suffixIcon: InkWell(
+        onTap: () => controller.isShowPwd.value = !controller.isShowPwd.value,
+        customBorder: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(15),
+            bottomRight: Radius.circular(15),
           ),
-          child: controller.isShowPwd.value
-              ? AppInputIcon(icon: Assets.icons.eyeOutline, isPrefix: false)
-              : AppInputIcon(icon: Assets.icons.eyeOffOutline, isPrefix: false),
         ),
+        child: controller.isShowPwd.value
+            ? AppInputIcon(icon: Assets.icons.eyeOutline, isPrefix: false)
+            : AppInputIcon(icon: Assets.icons.eyeOffOutline, isPrefix: false),
       ),
     );
   }

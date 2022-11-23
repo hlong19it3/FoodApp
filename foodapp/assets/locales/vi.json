@@ -1,10 +1,10 @@
 {
     "CurrentUnit": "₫",
     "Onboaring": {
-        "Title_1": "",
-        "Description_1": "Here You Can find a chef or dish for every taste and color. Enjoy!",
-        "Title_2": "Food Ninja is Where Your Comfort Food Lives",
-        "Description_2": "Enjoy a fast and smooth food delivery at your doorstep"
+        "Title_1": "Tất cả các mục yêu thích của bạn",
+        "Description_1": "Đặt hàng từ các nhà hàng địa phương tốt nhất với giao hàng dễ dàng, theo yêu cầu.",
+        "Title_2": "Chọn thức ăn của bạn",
+        "Description_2": "Dễ dàng tìm thấy loại đồ ăn mà bạn thèm ăn và bạn sẽ được giao hàng tận nơi trong phạm vi rộng."
     },
     "DioError": {
         "Cancel": "Request to API server was cancelled",

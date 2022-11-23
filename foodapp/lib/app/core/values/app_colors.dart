@@ -9,5 +9,5 @@ class AppColors {
 
   static Color get text => Theme.of(Get.context!).textTheme.bodyText1!.color!;
   static Color get iconColor => Theme.of(Get.context!).iconTheme.color!;
-  static Color get error => ColorStyles.brand;
+  static Color get error => ColorStyles.error;
 }

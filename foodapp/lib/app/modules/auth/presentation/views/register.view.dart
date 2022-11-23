@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:foodapp/app/core/widgets/dismis_keyboard.widget.dart';
 import 'package:foodapp/app/core/widgets/spacer.dart';
 import 'package:get/get.dart';
 
@@ -16,8 +17,7 @@ class RegisterView extends GetView<RegisterController> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+    return DismissKeyboard(
       child: GetX<RegisterController>(
         builder: (controller) => Scaffold(
           // resizeToAvoidBottomInset: true,
@@ -54,8 +54,8 @@ class RegisterView extends GetView<RegisterController> {
                     prefixIconName: "person-outline",
                     maxLength: 32,
                   ),
-const VSpacer(10),
-                 
+                  const VSpacer(10),
+
                   Obx(
                     () => AppInput(
                       hintText: "Your Email",
@@ -68,7 +68,7 @@ const VSpacer(10),
                       maxLength: 32,
                     ),
                   ),
-                 const VSpacer(10),
+                  const VSpacer(10),
                   // Obx(
                   //   () => AppInput(
                   //     hintText: "Your Password",
@@ -98,7 +98,7 @@ const VSpacer(10),
                   //     inputFormatters: const [],
                   //   ),
                   // ),
-                 const VSpacer(10),
+                  const VSpacer(10),
                   // Obx(
                   //   () => AppInput(
                   //     hintText: "Confirm Your Password",

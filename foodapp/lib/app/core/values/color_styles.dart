@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ColorStyles {
-  static const Color brand = Color(0xFFEE0033);
-
+  static const Color brand = Color(0xFFFADE68);
+  static const Color error = Color(0xFFEE0033);
   static const Color secondary = Color(0xFFE4E9F2);
   static const Color secondaryDark = Color(0xFF404040);
   static const Color background = Colors.white;
@@ -24,7 +24,6 @@ class ColorStyles {
   static const Color bodyTextDark = Colors.white38;
   static const Color titleText = Color(0xFF101112);
   static const Color titleTextDark = Colors.white54;
-
 
   static const Color text = Color(0xFF757575);
 
