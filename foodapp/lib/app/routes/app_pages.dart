@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 
 import '../modules/auth/presentation/bindings/auth.binding.dart';
-import '../modules/auth/presentation/bindings/forgot_password.binding.dart';
 import '../modules/auth/presentation/bindings/login.binding.dart';
 import '../modules/auth/presentation/bindings/onboaring.binding.dart';
 import '../modules/auth/presentation/bindings/register.binding.dart';
@@ -43,6 +42,5 @@ class AppPages {
       page: () => const HomeView(),
       binding: HomeBinding(),
     ),
-
   ];
 }

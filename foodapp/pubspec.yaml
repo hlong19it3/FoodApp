@@ -129,6 +129,32 @@ flutter:
     - assets/images/onboaring/
     - assets/locales/
 
+  fonts:
+  - family: Metropolis
+    fonts:
+      - asset: assets/fonts/Metropolis-Regular.ttf
+      - asset: assets/fonts/Metropolis-RegularItalic.ttf
+        style: italic
+      - asset: assets/fonts/Metropolis-Bold.ttf
+        weight: 700
+      - asset: assets/fonts/Metropolis-BoldItalic.ttf
+        style: italic
+        weight: 700
+      - asset: assets/fonts/Metropolis-ExtraBold.ttf
+        weight: 900
+      - asset: assets/fonts/Metropolis-ExtraBoldItalic.ttf
+        style: italic
+        weight: 900
+      - asset: assets/fonts/Metropolis-Medium.ttf
+        weight: 500
+      - asset: assets/fonts/Metropolis-MediumItalic.ttf
+        weight: 500
+        style: italic
+      - asset: assets/fonts/Metropolis-SemiBold.ttf
+        weight: 600
+      - asset: assets/fonts/Metropolis-SemiBoldItalic.ttf
+        weight: 600
+        style: italic
   
 flutter_gen:
   output: lib/generated/ # Optional (default: lib/gen/)
