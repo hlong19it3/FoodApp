@@ -11,9 +11,9 @@ import 'app/core/constants/breakpoints.dart';
 import 'app/core/di/di.dart';
 import 'app/core/themes/light_theme.dart';
 import 'app/core/utils/app_scrollbehavior.dart';
-import 'app/core/values/app_data.dart';
 import 'app/routes/app_pages.dart';
 import 'generated/locales.g.dart';
+
 Future main() async {
   configureDependencies();
   await GetStorage.init();
@@ -57,7 +57,6 @@ class MyApp extends StatelessWidget {
       smartManagement: SmartManagement.keepFactory,
       theme: lightTheme(context),
       debugShowCheckedModeBanner: false,
-      title: AppData.windowTitle,
       builder: EasyLoading.init(),
       initialRoute: AppPages.initial,
       locale: Get.deviceLocale,

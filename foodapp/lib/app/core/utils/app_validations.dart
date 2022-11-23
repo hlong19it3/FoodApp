@@ -3,7 +3,7 @@ import 'app_regexs.dart';
 class AppValidations {
   static String email({
     required String email,
-    required bool isCheckField,
+    bool isCheckField = true,
   }) {
     if (isCheckField) {
       if (email.isEmpty) {
@@ -20,10 +20,10 @@ class AppValidations {
     return "";
   }
 
-  static String password(
-    String password,
-    bool isCheckField,
-  ) {
+  static String password({
+    required String password,
+    bool isCheckField = true,
+  }) {
     if (isCheckField) {
       if (password.isEmpty) {
         return "Password field is required";

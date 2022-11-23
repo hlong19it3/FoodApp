@@ -1,7 +1,7 @@
-import '../values/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../values/app_colors.dart';
 import 'app_input_icon.dart';
 import 'components/outline_input_border.dart';
 
@@ -63,8 +63,10 @@ class AppInput extends StatelessWidget {
           left: 10,
           right: suffixIcon == null ? 10 : 0,
         ),
-        suffixIconConstraints: const BoxConstraints(minWidth: 0, maxHeight: 45),
-        prefixIconConstraints: const BoxConstraints(minWidth: 0, maxHeight: 45),
+        suffixIconConstraints:
+            const BoxConstraints(minWidth: 45, minHeight: 45),
+        prefixIconConstraints:
+            const BoxConstraints(minWidth: 45, minHeight: 45),
         prefixIcon: AppInputIcon(
           icon: prefixIconName,
         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodapp/app/modules/auth/controllers/auth.controller.dart';
+import 'package:foodapp/app/modules/auth/presentation/controllers/auth.controller.dart';
 import 'package:get/get.dart';
 
 import '../controllers/home.controller.dart';

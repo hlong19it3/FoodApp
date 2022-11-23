@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../core/domain/entities/failure.entity.dart';
 import '../../core/domain/usecases/usecase.dart';
-import '../entities/user.entity.dart';
+import '../../modules/auth/domain/entity/user.entity.dart';
 import '../repositories/auth_repository.dart';
 
 @lazySingleton

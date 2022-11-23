@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../values/app_data.dart';
 
@@ -15,9 +16,9 @@ class AppLogo extends StatelessWidget {
       height: size ?? 100,
       width: size ?? 100,
       child: Center(
-        child: Image.asset(
+        child: SvgPicture.asset(
           AppData.logo,
-          fit: BoxFit.cover,
+          // fit: BoxFit.cover,
         ),
       ),
     );

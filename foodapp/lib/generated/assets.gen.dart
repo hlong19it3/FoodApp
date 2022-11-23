@@ -2826,20 +2826,16 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/Cell phone-pana.svg
-  String get cellPhonePana => 'assets/images/Cell phone-pana.svg';
+  /// File path: assets/images/congrats.svg
+  String get congrats => 'assets/images/congrats.svg';
 
-  $AssetsImagesBrandGen get brand => const $AssetsImagesBrandGen();
+  /// File path: assets/images/logo.svg
+  String get logo => 'assets/images/logo.svg';
+
   $AssetsImagesOnboaringGen get onboaring => const $AssetsImagesOnboaringGen();
 
-  /// File path: assets/images/people.svg
-  String get people => 'assets/images/people.svg';
-
-  /// File path: assets/images/teams.svg
-  String get teams => 'assets/images/teams.svg';
-
-  /// File path: assets/images/wavesOpacity.svg
-  String get wavesOpacity => 'assets/images/wavesOpacity.svg';
+  /// File path: assets/images/splash.svg
+  String get splash => 'assets/images/splash.svg';
 }
 
 class $AssetsLocalesGen {
@@ -2852,39 +2848,14 @@ class $AssetsLocalesGen {
   String get vi => 'assets/locales/vi.json';
 }
 
-class $AssetsImagesBrandGen {
-  const $AssetsImagesBrandGen();
-
-  /// File path: assets/images/brand/logo.png
-  AssetGenImage get logoPng =>
-      const AssetGenImage('assets/images/brand/logo.png');
-
-  /// File path: assets/images/brand/logo.svg
-  String get logoSvg => 'assets/images/brand/logo.svg';
-
-  /// File path: assets/images/brand/logo_dev_launcher.png
-  AssetGenImage get logoDevLauncher =>
-      const AssetGenImage('assets/images/brand/logo_dev_launcher.png');
-
-  /// File path: assets/images/brand/logo_launcher.png
-  AssetGenImage get logoLauncher =>
-      const AssetGenImage('assets/images/brand/logo_launcher.png');
-}
-
 class $AssetsImagesOnboaringGen {
   const $AssetsImagesOnboaringGen();
 
-  /// File path: assets/images/onboaring/analytics.svg
-  String get analytics => 'assets/images/onboaring/analytics.svg';
+  /// File path: assets/images/onboaring/cake.svg
+  String get cake => 'assets/images/onboaring/cake.svg';
 
-  /// File path: assets/images/onboaring/feeling_proud.svg
-  String get feelingProud => 'assets/images/onboaring/feeling_proud.svg';
-
-  /// File path: assets/images/onboaring/search.svg
-  String get search => 'assets/images/onboaring/search.svg';
-
-  /// File path: assets/images/onboaring/unlock.svg
-  String get unlock => 'assets/images/onboaring/unlock.svg';
+  /// File path: assets/images/onboaring/food.svg
+  String get food => 'assets/images/onboaring/food.svg';
 }
 
 class Assets {
@@ -2920,7 +2891,7 @@ class AssetGenImage {
     bool matchTextDirection = false,
     bool gaplessPlayback = false,
     bool isAntiAlias = false,
-    String? package = 'finfree',
+    String? package = 'foodapp',
     FilterQuality filterQuality = FilterQuality.low,
     int? cacheWidth,
     int? cacheHeight,
@@ -2955,5 +2926,5 @@ class AssetGenImage {
 
   String get path => _assetName;
 
-  String get keyName => 'packages/finfree/$_assetName';
+  String get keyName => 'packages/foodapp/$_assetName';
 }

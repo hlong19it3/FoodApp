@@ -108,16 +108,11 @@ dev_dependencies:
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/images/brand/logo_launcher.png"
+  image_path: "assets/images/logo.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
-  web:
-    generate: true
-    image_path: "assets/images/brand/logo_launcher.png"
-    background_color: "#hexcode"
-    theme_color: "#hexcode"
   windows:
     generate: true
-    image_path: "assets/images/brand/logo_launcher.png"
+    image_path: "assets/images/logo.png"
     icon_size: 48 
     
 flutter:
@@ -131,13 +126,35 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
-    - assets/images/brand/
     - assets/images/onboaring/
     - assets/locales/
 
-flutter_native_splash:
-  color: "#F3F4F8"
-  image: "assets/images/brand/logo.png"
+  fonts:
+  - family: Metropolis
+    fonts:
+      - asset: assets/fonts/Metropolis-Regular.ttf
+      - asset: assets/fonts/Metropolis-RegularItalic.ttf
+        style: italic
+      - asset: assets/fonts/Metropolis-Bold.ttf
+        weight: 700
+      - asset: assets/fonts/Metropolis-BoldItalic.ttf
+        style: italic
+        weight: 700
+      - asset: assets/fonts/Metropolis-ExtraBold.ttf
+        weight: 900
+      - asset: assets/fonts/Metropolis-ExtraBoldItalic.ttf
+        style: italic
+        weight: 900
+      - asset: assets/fonts/Metropolis-Medium.ttf
+        weight: 500
+      - asset: assets/fonts/Metropolis-MediumItalic.ttf
+        weight: 500
+        style: italic
+      - asset: assets/fonts/Metropolis-SemiBold.ttf
+        weight: 600
+      - asset: assets/fonts/Metropolis-SemiBoldItalic.ttf
+        weight: 600
+        style: italic
   
 flutter_gen:
   output: lib/generated/ # Optional (default: lib/gen/)

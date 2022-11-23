@@ -13,12 +13,10 @@ class AppInputIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: isPrefix
-          ? const EdgeInsets.fromLTRB(10, 10, 10, 10)
-          : const EdgeInsets.fromLTRB(0, 10, 10, 10),
+      padding: const EdgeInsets.all(10),
       child: AppSvgPicture(
         icon: icon,
-        size: 25,
+        size: 21,
       ),
     );
   }
