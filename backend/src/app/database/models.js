@@ -48,19 +48,28 @@ const Food = sequelize.define(
 			type: DataTypes.INTEGER,
 			allowNull: true,
 		},
+		name: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
 		price: {
 			type: DataTypes.INTEGER,
 			allowNull: true,
 		},
 		details: {
 			type: DataTypes.STRING,
-			allowNull: true,
+			defaultValue: '',
 		},
 		image: {
 			type: DataTypes.STRING,
 		},
 		quantity: {
 			type: DataTypes.INTEGER,
+			defaultValue: 0,
+		},
+		sold: {
+			type: DataTypes.INTEGER,
+			defaultValue: 0,
 		},
 		start_sell: {
 			type: DataTypes.TIME,
@@ -71,6 +80,10 @@ const Food = sequelize.define(
 		category_id: {
 			type: DataTypes.INTEGER,
 			allowNull: true,
+		},
+		rating: {
+			type: DataTypes.FLOAT,
+			defaultValue: 0,
 		},
 	},
 	{
@@ -354,6 +367,10 @@ Category.hasMany(Food, {
 Restaurant.hasOne(Menu, {
 	foreignKey: 'restaurant_id',
 })
+
+// Restaurant.hasMany(Food, {
+// 	foreignKey: 'restaurant_id',
+// })
 
 Restaurant.hasMany(Order, {
 	foreignKey: 'restaurant_id',
