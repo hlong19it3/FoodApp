@@ -3,7 +3,10 @@ function isEmpty(object) {
 }
 
 function isNotEmpty(object) {
-	return Object.keys(object).length > 0
+	if (object) {
+		return Object.keys(object).length > 0
+	}
+	return false
 }
 
 module.exports = { isEmpty, isNotEmpty }
