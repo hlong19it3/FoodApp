@@ -26,21 +26,26 @@ const create = async (req, res) => {
 }
 
 const update = async (req, res) => {
-	const category = req.body.category
-	if (category && category.id && category.type) {
-		await categoryDao.update(category).then(
-			(count) => {
-				res.status(statusCode.OK).json({
-					count,
-				})
-			},
-			(err) => {
-				console.log(err)
-				res.status(statusCode.SERVER_ERROR).json({
-					message: 'Internal server error',
-				})
-			}
-		)
+	const { id, type } = req.body
+	if (id && type) {
+		await categoryDao
+			.update({
+				id,
+				type,
+			})
+			.then(
+				(count) => {
+					res.status(statusCode.OK).json({
+						count,
+					})
+				},
+				(err) => {
+					console.log(err)
+					res.status(statusCode.SERVER_ERROR).json({
+						message: 'Internal server error',
+					})
+				}
+			)
 	} else {
 		res.status(statusCode.BAD_REQUEST).json({
 			message: 'Bad Request',

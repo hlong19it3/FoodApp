@@ -1,12 +1,26 @@
-const { where } = require("sequelize");
-const connection = require("../AppDatabase");
-const { User } = require("../models");
+const { User } = require('../models')
+const md5 = require('md5')
 
 async function insert(user) {
-  await User.create(user);
+	return await User.findOrCreate({
+		where: {
+			email: user.email,
+			phone: user.phone,
+		},
+		defaults: {
+			role: 1,
+			first_name: user.firstName,
+			last_name: user.lastName,
+			main_address: user.main_address || '',
+			birthday: user.birthday,
+			gender: user.gender,
+			email: user.email,
+			password: md5(user.password),
+		},
+	})
 }
 async function findAll() {
-  await User.findAll();
+	await User.findAll()
 }
 
 // async function updateProfile() {
@@ -39,4 +53,4 @@ async function findAll() {
 //   );
 // }
 
-module.exports = { insert, findAll };
+module.exports = { insert, findAll }

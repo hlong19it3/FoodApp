@@ -246,6 +246,7 @@ const User = sequelize.define(
 		},
 		role: {
 			type: DataTypes.INTEGER,
+			defaultValue: 1,
 		},
 		first_name: {
 			type: DataTypes.STRING,
@@ -263,12 +264,14 @@ const User = sequelize.define(
 		},
 		gender: {
 			type: DataTypes.TINYINT,
+			defaultValue: 1,
 		},
 		email: {
 			type: DataTypes.STRING,
 		},
 		phone: {
 			type: DataTypes.STRING,
+			defaultValue: '',
 		},
 		password: {
 			type: DataTypes.STRING,
@@ -276,25 +279,30 @@ const User = sequelize.define(
 		},
 		status: {
 			type: DataTypes.TINYINT,
+			defaultValue: 0,
 		},
 		// registration_time: {
 		//   type: DataTypes.DATE,
 		// },
 		last_action: {
 			type: DataTypes.DATE,
+			defaultValue: Date.now(),
 		},
 		lat: {
 			type: DataTypes.FLOAT,
+			defaultValue: 0,
 		},
 		lg: {
 			type: DataTypes.FLOAT,
+			defaultValue: 0,
 		},
 		avatar: {
 			type: DataTypes.STRING,
+			defaultValue: '',
 		},
 		refresh_token: {
 			type: DataTypes.STRING(2000),
-			allowNull: true,
+			defaultValue: '',
 		},
 		// created_at: {
 		//   type: DataTypes.DATE,
