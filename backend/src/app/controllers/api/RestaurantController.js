@@ -6,12 +6,12 @@ const { statusCode } = require('../../common/constants')
 
 const create = async (req, res) => {
 	const user = req.user
-	const restaurant = req.body.restaurant
-	if (restaurant) {
+	const { name, address } = req.body
+	if (name && address) {
 		const [newrestaurant, created] = await restaurantDao.insert({
-			name: restaurant.name,
+			name: name,
 			user_id: user.id,
-			address: restaurant.address,
+			address: address,
 		})
 		res.status(statusCode.OK).json({
 			created: created,
@@ -25,8 +25,8 @@ const create = async (req, res) => {
 }
 
 const update = async (req, res) => {
-	const restaurant = req.body.restaurant
-	restaurantDao.update(restaurant, req.user.id).then(
+	const { name, address } = req.body
+	restaurantDao.update({ name, address }, req.user.id).then(
 		(value) => {
 			if (value != 0) {
 				res.status(statusCode.OK).json({
