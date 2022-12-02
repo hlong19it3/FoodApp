@@ -146,10 +146,6 @@ const OrderDetail = sequelize.define(
 		amount: {
 			type: DataTypes.INTEGER,
 		},
-		// createdAt: {
-		//   type: DataTypes.DATE,
-		//   defaultValue: DataTypes.NOW,
-		// },
 	},
 	{
 		timestamps: true,
@@ -293,7 +289,7 @@ const User = sequelize.define(
 		// },
 		lastAction: {
 			type: DataTypes.DATE,
-			// defaultValue: Date.now(),
+			defaultValue: DataTypes.NOW,
 		},
 		lat: {
 			type: DataTypes.FLOAT,

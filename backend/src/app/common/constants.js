@@ -1,3 +1,8 @@
+const gender = {
+	FEMALE: 0,
+	MALE: 1,
+}
+
 const role = {
 	ADMIN: 0,
 	USER: 1,
@@ -17,4 +22,4 @@ const statusCode = {
 	SERVER_ERROR: 500,
 }
 
-module.exports = { role, statusCode }
+module.exports = { role, statusCode, gender }

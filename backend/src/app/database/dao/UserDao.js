@@ -1,17 +1,18 @@
 const { User } = require('../models')
 const md5 = require('md5')
+const { Op } = require('sequelize')
 
 async function insert(user) {
+	console.log(user)
 	return await User.findOrCreate({
 		where: {
-			email: user.email,
-			phone: user.phone,
+			[Op.or]: [{ email: user.email }, { phone: user.phone }],
 		},
 		defaults: {
 			role: 1,
 			firstName: user.firstName,
 			lastName: user.lastName,
-			mainAddress: user.mainAddress || '',
+			mainAddress: user.address || '',
 			birthday: user.birthday,
 			gender: user.gender,
 			email: user.email,
