@@ -3,12 +3,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodapp/app/core/themes/app_colors.dart';
 import 'package:get/get.dart';
 
-import '../../../../../generated/assets.gen.dart';
-import '../../../../core/constants/breakpoints.dart';
-import '../../../../core/values/app_values.dart';
-import '../../../../core/widgets/appname.widget.dart';
-import '../../../../core/widgets/dot_for_listview.widget.dart';
-import '../../../../core/widgets/spacer.dart';
+import '../../../../generated/assets.gen.dart';
+import '../../../core/constants/breakpoints.dart';
+import '../../../core/values/app_values.dart';
+import '../../../core/widgets/appname.widget.dart';
+import '../../../core/widgets/dot_for_listview.widget.dart';
+import '../../../core/widgets/spacer.dart';
 import '../controllers/onboaring.controller.dart';
 
 class OnBoaringView extends GetView<OnBoaringController> {

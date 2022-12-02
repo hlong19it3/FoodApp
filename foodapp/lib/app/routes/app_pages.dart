@@ -2,12 +2,12 @@ import 'package:foodapp/app/modules/base/bindings/base.binding.dart';
 import 'package:foodapp/app/modules/base/views/base.view.dart';
 import 'package:get/get.dart';
 
-import '../modules/auth/presentation/bindings/auth.binding.dart';
-import '../modules/auth/presentation/bindings/onboaring.binding.dart';
-import '../modules/auth/presentation/views/auth.view.dart';
-import '../modules/auth/presentation/views/login.view.dart';
-import '../modules/auth/presentation/views/onboaring.view.dart';
-import '../modules/auth/presentation/views/register.view.dart';
+import '../modules/auth/bindings/auth.binding.dart';
+import '../modules/auth/bindings/onboaring.binding.dart';
+import '../modules/auth/views/auth.view.dart';
+import '../modules/auth/views/login.view.dart';
+import '../modules/auth/views/onboaring.view.dart';
+import '../modules/auth/views/register.view.dart';
 import '../modules/home/bindings/home.binding.dart';
 
 part 'app_routes.dart';

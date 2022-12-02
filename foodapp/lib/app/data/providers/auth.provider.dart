@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:foodapp/app/core/http/helper.dio.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../core/domain/entities/failure.entity.dart';
-import '../../modules/auth/domain/entity/user.entity.dart';
+import '../../core/http/helper.dio.dart';
+import '../../domain/entities/user.entity.dart';
 
 abstract class IAuthProvider {
   Future<Either<AuthFailure, LoginResponseEntity>> login({

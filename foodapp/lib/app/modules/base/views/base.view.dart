@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/app/core/widgets/icon_bottom_bar.widget.dart';
+import 'package:foodapp/app/modules/favorite/views/favorite.view.dart';
 import 'package:foodapp/app/modules/home/views/home.view.dart';
+import 'package:foodapp/app/modules/profile/views/profile.view.dart';
+import 'package:foodapp/app/modules/receipt/views/receipt.view.dart';
 import 'package:get/get.dart';
 
 import '../../../../generated/assets.gen.dart';
@@ -23,10 +26,14 @@ class BaseView extends GetView<BaseController> {
             switch (index) {
               case 0:
                 return const HomeView();
-
-              default:
-                return const SizedBox();
+              case 1:
+                return const ProfileView();
+              case 2:
+                return const FavoriteView();
+              case 3:
+                return const ReceiptView();
             }
+            return null;
           },
         ),
         bottomNavigationBar: Padding(

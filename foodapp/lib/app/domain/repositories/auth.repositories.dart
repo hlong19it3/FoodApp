@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 
 import '../../core/domain/entities/failure.entity.dart';
-import '../../modules/auth/domain/entity/user.entity.dart';
+import '../entities/user.entity.dart';
 
-abstract class IAuthRepository {
+abstract class IAuthRepositories {
   Future<Either<AuthFailure, LoginResponseEntity>> login({
     required LoginEntity userAuth,
   });

@@ -27,12 +27,12 @@ class Breakpoints {
 }
 
 class DeviceSize {
-  static const DeviceInfo mobile =  DeviceInfo(
+  static const DeviceInfo mobile = DeviceInfo(
     size: Size(375, 812),
     name: "Iphone 13 Mini",
   );
 
-  static const DeviceInfo desktop =  DeviceInfo(
+  static const DeviceInfo desktop = DeviceInfo(
     size: Size(1280, 720),
     name: "Macbook Pro 2022",
     maxSize: Size(1920, 1080),

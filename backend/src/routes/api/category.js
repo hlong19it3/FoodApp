@@ -9,6 +9,6 @@ router.post('/create', checkToken, isAdmin, categoryController.create)
 router.post('/update', checkToken, isAdmin, categoryController.update)
 router.get('/delete', checkToken, isAdmin, categoryController.deleteCategory)
 router.get('/select-by_id', categoryController.selectById)
-router.get('/select-all', categoryController.selectAll)
+router.get('/all', categoryController.selectAll)
 
 module.exports = router

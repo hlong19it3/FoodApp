@@ -1,15 +1,15 @@
 import 'package:dartz/dartz.dart';
-import 'package:foodapp/app/core/domain/entities/failure.entity.dart';
-import 'package:foodapp/app/modules/auth/domain/entity/user.entity.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../domain/repositories/auth_repository.dart';
+import '../../core/domain/entities/failure.entity.dart';
+import '../../domain/entities/user.entity.dart';
+import '../../domain/repositories/auth.repositories.dart';
 import '../providers/auth.provider.dart';
 
-@LazySingleton(as: IAuthRepository)
-class AuthRepository implements IAuthRepository {
+@LazySingleton(as: IAuthRepositories)
+class AuthRepositories implements IAuthRepositories {
   final IAuthProvider api;
-  AuthRepository({
+  AuthRepositories({
     required this.api,
   });
 

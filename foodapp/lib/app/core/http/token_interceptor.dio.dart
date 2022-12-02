@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
-import '../../modules/auth/presentation/controllers/auth.controller.dart';
+import '../../modules/auth/controllers/auth.controller.dart';
 import '../services/stores/box.storage.dart';
 import '../values/app_keys.dart';
 

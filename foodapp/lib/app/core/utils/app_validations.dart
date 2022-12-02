@@ -76,6 +76,7 @@ class AppValidations {
 
     return null;
   }
+
   static String? phone({
     String? phone,
     bool isCheckField = true,

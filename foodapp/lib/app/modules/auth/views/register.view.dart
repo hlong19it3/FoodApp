@@ -3,17 +3,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodapp/app/core/themes/app_colors.dart';
 import 'package:get/get.dart';
 
-import '../../../../../app_responsive.widget.dart';
-import '../../../../../generated/assets.gen.dart';
-import '../../../../core/utils/app_validations.dart';
-import '../../../../core/widgets/app_button.dart';
-import '../../../../core/widgets/app_input.dart';
-import '../../../../core/widgets/app_logo.dart';
-import '../../../../core/widgets/app_svg_picture.widget.dart';
-import '../../../../core/widgets/appbar_with_icon_back.dart';
-import '../../../../core/widgets/appname.widget.dart';
-import '../../../../core/widgets/dismis_keyboard.widget.dart';
-import '../../../../core/widgets/spacer.dart';
+import '../../../../app_responsive.widget.dart';
+import '../../../../generated/assets.gen.dart';
+import '../../../core/utils/app_validations.dart';
+import '../../../core/widgets/app_button.dart';
+import '../../../core/widgets/app_input.dart';
+import '../../../core/widgets/app_logo.dart';
+import '../../../core/widgets/app_svg_picture.widget.dart';
+import '../../../core/widgets/appbar_with_icon_back.dart';
+import '../../../core/widgets/appname.widget.dart';
+import '../../../core/widgets/dismis_keyboard.widget.dart';
+import '../../../core/widgets/spacer.dart';
 import '../controllers/register.controller.dart';
 
 class RegisterView extends GetView<RegisterController> {

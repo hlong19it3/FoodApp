@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:foodapp/app/core/services/stores/secure.storage.dart';
 import 'package:get/get.dart';
 
-import '../../../../data/datasources/datasource.dart';
-import '../../../../domain/entities/onboaring.entity.dart';
-import '../../../../routes/app_pages.dart';
+import '../../../data/datasources/datasource.dart';
+import '../../../domain/entities/onboaring.entity.dart';
+import '../../../routes/app_pages.dart';
 
 class OnBoaringController extends GetxController {
   final List<OnboaringEntity> onBoarings = DataSources.onboarings;
