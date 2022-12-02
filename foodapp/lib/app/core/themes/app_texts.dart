@@ -21,10 +21,11 @@ class AppTextStyles {
       GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w600);
   static TextStyle mobileSmall =
       GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w600);
+      static TextStyle mobileSuperSmall =
+      GoogleFonts.inter(fontSize: 12, fontWeight: FontWeight.w400);
   static TextStyle mobileOverLine =
       GoogleFonts.inter(fontSize: 10, fontWeight: FontWeight.w600);
 
   static TextStyle mobileCaption =
       GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w400);
-
 }

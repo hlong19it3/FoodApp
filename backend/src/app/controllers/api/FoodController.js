@@ -7,9 +7,7 @@ const format = require('dateformat')
 const getAll = async (req, res) => {
   await foodDao.getAll().then(
     (value) => {
-      res.status(statusCode.OK).json({
-        value,
-      })
+      res.status(statusCode.OK).json(value)
     },
     (err) => {
       console.log(err)

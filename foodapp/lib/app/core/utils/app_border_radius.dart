@@ -1,3 +1,1 @@
-class AppBorderSize{
-  
-}
+class AppBorderSize {}

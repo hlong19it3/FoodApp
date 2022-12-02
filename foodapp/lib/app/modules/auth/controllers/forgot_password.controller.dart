@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../../../core/utils/app_validations.dart';
+import '../../../core/utils/app_validations.dart';
 
 class ForgotPasswordController extends GetxController {
   RxString email = "".obs;

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/app/core/themes/app_colors.dart';
 
-
 class DotForListView extends StatelessWidget {
   const DotForListView({
     Key? key,

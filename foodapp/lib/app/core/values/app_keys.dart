@@ -13,5 +13,3 @@ class AppKeys {
   static const DEVICE_TOKEN = 'deviceToken';
   static const MESSAGE_THREADS = 'MESSAGE_THREADS';
 }
-
-

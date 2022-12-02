@@ -2,6 +2,7 @@ import '../../../generated/assets.gen.dart';
 import '../../../generated/locales.g.dart';
 import '../../domain/entities/onboaring.entity.dart';
 import 'package:get/get.dart';
+
 class DataSources {
   static List<OnboaringEntity> onboarings = [
     OnboaringEntity(

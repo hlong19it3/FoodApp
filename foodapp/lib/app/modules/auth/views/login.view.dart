@@ -4,16 +4,16 @@ import 'package:foodapp/generated/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../../generated/locales.g.dart';
-import '../../../../core/utils/app_validations.dart';
-import '../../../../core/widgets/app_button.dart';
-import '../../../../core/widgets/app_input.dart';
-import '../../../../core/widgets/app_input_icon.dart';
-import '../../../../core/widgets/app_logo.dart';
-import '../../../../core/widgets/appname.widget.dart';
-import '../../../../core/widgets/dismis_keyboard.widget.dart';
-import '../../../../core/widgets/spacer.dart';
-import '../../../../routes/app_pages.dart';
+import '../../../../generated/locales.g.dart';
+import '../../../core/utils/app_validations.dart';
+import '../../../core/widgets/app_button.dart';
+import '../../../core/widgets/app_input.dart';
+import '../../../core/widgets/app_input_icon.dart';
+import '../../../core/widgets/app_logo.dart';
+import '../../../core/widgets/appname.widget.dart';
+import '../../../core/widgets/dismis_keyboard.widget.dart';
+import '../../../core/widgets/spacer.dart';
+import '../../../routes/app_pages.dart';
 import '../controllers/login.controller.dart';
 
 class LoginView extends GetView<LoginController> {

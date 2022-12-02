@@ -26,7 +26,10 @@ const Category = sequelize.define(
 			autoIncrement: true,
 			primaryKey: true,
 		},
-		type: {
+		name: {
+			type: DataTypes.STRING,
+		},
+		image: {
 			type: DataTypes.STRING,
 		},
 	},
@@ -82,7 +85,11 @@ const Food = sequelize.define(
 			allowNull: true,
 		},
 		rating: {
-			type: DataTypes.FLOAT,
+			type: DataTypes.DOUBLE,
+			defaultValue: 5,
+		},
+		totalRating: {
+			type: DataTypes.INTEGER,
 			defaultValue: 0,
 		},
 	},

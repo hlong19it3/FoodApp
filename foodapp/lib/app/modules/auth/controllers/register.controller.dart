@@ -1,11 +1,11 @@
 import 'package:foodapp/app/domain/usecases/auth.usecase.dart';
-import 'package:foodapp/app/modules/auth/domain/entity/user.entity.dart';
+import 'package:foodapp/app/domain/entities/user.entity.dart';
 import 'package:get/get.dart';
 
-import '../../../../../generated/locales.g.dart';
-import '../../../../core/services/stores/secure.storage.dart';
-import '../../../../core/utils/app_loading.dart';
-import '../../../../core/utils/app_regexs.dart';
+import '../../../../generated/locales.g.dart';
+import '../../../core/services/stores/secure.storage.dart';
+import '../../../core/utils/app_loading.dart';
+import '../../../core/utils/app_regexs.dart';
 import 'auth.controller.dart';
 
 enum GenderItemsEnum { Male, Female }

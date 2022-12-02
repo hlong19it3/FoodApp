@@ -1,10 +1,11 @@
 const connection = require('../AppDatabase')
 const { Category } = require('../models')
 
-const insert = async (type) => {
+const insert = async (category) => {
 	return await Category.findOrCreate({
 		where: {
-			type: type,
+			name: category.name,
+			image: category.image
 		},
 	})
 }
@@ -12,7 +13,7 @@ const insert = async (type) => {
 const update = async (category) => {
 	return await Category.update(
 		{
-			type: category.type,
+			type: category.name,
 		},
 		{
 			where: {

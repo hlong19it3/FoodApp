@@ -1,10 +1,10 @@
 import 'package:foodapp/app/core/widgets/spacer.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/widgets/app_logo.dart';
-import '../../../../core/widgets/appname.widget.dart';
-import '../../../../core/widgets/dismis_keyboard.widget.dart';
-import '../../../../core/widgets/linner_process.widget.dart';
+import '../../../core/widgets/app_logo.dart';
+import '../../../core/widgets/appname.widget.dart';
+import '../../../core/widgets/dismis_keyboard.widget.dart';
+import '../../../core/widgets/linner_process.widget.dart';
 
 class AuthView extends StatelessWidget {
   const AuthView({Key? key}) : super(key: key);

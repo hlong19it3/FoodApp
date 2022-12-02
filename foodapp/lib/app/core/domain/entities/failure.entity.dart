@@ -1,12 +1,12 @@
-abstract class Failure {
+class AppFailure {
   String? message;
-  Failure({
+  AppFailure({
     this.message,
   });
 }
 
 // General failures
-class AuthFailure extends Failure {
+class AuthFailure extends AppFailure {
   String code;
   AuthFailure({
     required this.code,
@@ -14,6 +14,6 @@ class AuthFailure extends Failure {
   }) : super(message: message);
 }
 
-class ServerFailure extends Failure {}
+class ServerFailure extends AppFailure {}
 
-class CacheFailure extends Failure {}
+class CacheFailure extends AppFailure {}

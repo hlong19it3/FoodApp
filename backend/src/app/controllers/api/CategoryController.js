@@ -4,9 +4,9 @@ const { statusCode } = require('../../common/constants')
 const e = require('express')
 
 const create = async (req, res) => {
-	const type = req.body.type
-	if (type) {
-		await categoryDao.insert(type).then(
+	const { name , image} = req.body
+	if (name) {
+		await categoryDao.insert({type: name, image}).then(
 			(value) => {
 				const [category, created] = value
 				res.status(statusCode.OK).json({ category, created })
@@ -100,9 +100,7 @@ const selectById = async (req, res) => {
 const selectAll = async (req, res) => {
 	await categoryDao.selectAll().then(
 		(value) => {
-			res.status(statusCode.OK).json({
-				value,
-			})
+			res.status(statusCode.OK).json(value)
 		},
 		(err) => {
 			console.log(err)
