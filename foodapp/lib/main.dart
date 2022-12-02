@@ -9,7 +9,7 @@ import 'package:window_manager/window_manager.dart';
 
 import 'app/core/constants/breakpoints.dart';
 import 'app/core/di/di.dart';
-import 'app/core/themes/light_theme.dart';
+import 'app/core/themes/theme.dart';
 import 'app/core/utils/app_scrollbehavior.dart';
 import 'app/routes/app_pages.dart';
 import 'generated/locales.g.dart';
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
       unknownRoute: AppPages.routes.last,
       translationsKeys: AppTranslation.translations,
       smartManagement: SmartManagement.keepFactory,
-      theme: lightTheme(context),
+      theme: appTheme(context),
       debugShowCheckedModeBanner: false,
       builder: EasyLoading.init(),
       initialRoute: AppPages.initial,

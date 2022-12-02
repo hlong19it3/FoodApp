@@ -1,3 +1,4 @@
+import 'package:foodapp/app/core/themes/app_colors.dart';
 import 'package:foodapp/app_responsive.widget.dart';
 import 'package:foodapp/generated/assets.gen.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +6,6 @@ import 'package:get/get.dart';
 
 import '../../../../../generated/locales.g.dart';
 import '../../../../core/utils/app_validations.dart';
-import '../../../../core/values/app_colors.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/app_input.dart';
 import '../../../../core/widgets/app_input_icon.dart';
@@ -42,7 +42,7 @@ class LoginView extends GetView<LoginController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               AppLogo(
-                size: 100,
+                size: 50,
               ),
               VSpacer(10),
               Text(
@@ -99,6 +99,10 @@ class LoginView extends GetView<LoginController> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const VSpacer(50),
+          const AppLogo(
+            size: 50,
+          ),
+          const VSpacer(8),
           const Text(
             "Welcome to",
             style: TextStyle(
@@ -146,7 +150,7 @@ class LoginView extends GetView<LoginController> {
               LocaleKeys.Auth_Register.tr,
               style: TextStyle(
                 fontWeight: FontWeight.w400,
-                color: AppColors.primary,
+                color: AppColorStyles.blue.shade700,
               ),
             ),
           )

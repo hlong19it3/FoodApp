@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../../../core/auth/auth_navigation.dart';
 import '../../../../core/di/di.dart';
 import '../../../../domain/usecases/auth.usecase.dart';
+import '../../../base/controller/base.controller.dart';
 import '../controllers/auth.controller.dart';
 import '../controllers/forgot_password.controller.dart';
 import '../controllers/login.controller.dart';
@@ -33,5 +34,10 @@ class AuthBinding extends Bindings {
     Get.lazyPut<ForgotPasswordController>(
       () => ForgotPasswordController(),
     );
+    Get.put<BaseController>(
+      BaseController(),
+      permanent: true,
+    );
   }
+
 }

@@ -10,4 +10,6 @@ abstract class IAuthRepository {
   Future<Either<AuthFailure, bool>> register({
     required RegisterEntity userAuth,
   });
+
+  Future<Either<AuthFailure, CurrentUserEntity>> currentUser();
 }

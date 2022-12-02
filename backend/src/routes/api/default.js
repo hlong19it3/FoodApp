@@ -15,6 +15,7 @@ router.post('/auth/token', getTokenController.getToken)
 router.post('/signup', signUpController.signUp)
 
 router.get('/auth/profile', checkToken, profileController.myProfile)
+router.get('/auth/current-user', checkToken, profileController.currentUser)
 router.put('/auth/update-profile', checkToken, profileController.updateProfile)
 
 router.post('/auth/signout', checkToken, signOutController.signOut)

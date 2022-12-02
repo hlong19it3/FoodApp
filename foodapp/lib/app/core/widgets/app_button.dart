@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../values/app_colors.dart';
+import 'package:foodapp/app/core/themes/app_colors.dart';
 
 class AppButton extends StatelessWidget {
   final String text;
@@ -20,7 +19,7 @@ class AppButton extends StatelessWidget {
           Radius.circular(15),
         ),
         border: Border.all(
-          color: AppColors.iconColor,
+          color: AppColorStyles.black10,
         ),
         color: Colors.transparent,
       ),
@@ -33,8 +32,8 @@ class AppButton extends StatelessWidget {
         child: Center(
           child: Text(
             text.toUpperCase(),
-            style: TextStyle(
-              color: AppColors.text,
+            style: const TextStyle(
+              color: AppColorStyles.black10,
               fontWeight: FontWeight.w500,
               letterSpacing: 3,
             ),

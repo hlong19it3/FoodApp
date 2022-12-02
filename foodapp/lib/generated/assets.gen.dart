@@ -2829,8 +2829,8 @@ class $AssetsImagesGen {
   /// File path: assets/images/congrats.svg
   String get congrats => 'assets/images/congrats.svg';
 
-  /// File path: assets/images/logo.svg
-  String get logo => 'assets/images/logo.svg';
+  /// File path: assets/images/logo.png
+  AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
   $AssetsImagesOnboaringGen get onboaring => const $AssetsImagesOnboaringGen();
 

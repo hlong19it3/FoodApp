@@ -33,5 +33,7 @@ _i1.GetIt $initGetIt(
       () => _i6.LoginUseCase(get<_i4.IAuthRepository>()));
   gh.lazySingleton<_i6.RegisterUseCase>(
       () => _i6.RegisterUseCase(get<_i4.IAuthRepository>()));
+  gh.lazySingleton<_i6.CurrentUserUseCase>(
+      () => _i6.CurrentUserUseCase(get<_i4.IAuthRepository>()));
   return get;
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:foodapp/app/core/themes/app_colors.dart';
 import 'package:get/get.dart';
 
 import '../../../../../generated/assets.gen.dart';
 import '../../../../core/constants/breakpoints.dart';
-import '../../../../core/values/app_colors.dart';
 import '../../../../core/values/app_values.dart';
 import '../../../../core/widgets/appname.widget.dart';
 import '../../../../core/widgets/dot_for_listview.widget.dart';
@@ -157,7 +157,7 @@ class OnBoaringView extends GetView<OnBoaringController> {
               onPressed: () => controller.onPreviousPage(),
               icon: SvgPicture.asset(
                 Assets.icons.chevronsLeft,
-                color: AppColors.iconColor,
+                color: AppColorStyles.black10,
               ),
             ),
           ),
@@ -168,7 +168,7 @@ class OnBoaringView extends GetView<OnBoaringController> {
             onPressed: () => controller.onNextPage(),
             icon: SvgPicture.asset(
               Assets.icons.chevronsRight,
-              color: AppColors.iconColor,
+              color: AppColorStyles.black10,
             ),
           ),
         ],
