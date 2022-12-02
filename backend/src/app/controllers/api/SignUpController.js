@@ -20,7 +20,7 @@ const signUp = async (req, res) => {
 			})
 			.then(
 				(value) => {
-					const [created] = value
+					const [newUser, created] = value
 					console.log(value)
 					if (created) {
 						res.status(statusCode.OK).json({ msg: 'Your account has been created successfully!' })
