@@ -1,78 +1,97 @@
 import 'app_regexs.dart';
 
 class AppValidations {
-  static String email({
-    required String email,
-    required bool isCheckField,
+  static String? email({
+    String? email,
+    bool isCheckField = true,
   }) {
-    if (isCheckField) {
-      if (email.isEmpty) {
-        return "Email field is required";
-      }
-    }
-    if (email.isNotEmpty) {
+    if (email != null && email.isNotEmpty) {
       if (!email.contains("@")) {
         return "Email must have an @ character";
       } else if (!AppRegexs.email(email)) {
         return "Enter a valid email address";
       }
+    } else if (isCheckField) {
+      return "Email field is required";
     }
-    return "";
+
+    return null;
   }
 
-  static String password(
-    String password,
-    bool isCheckField,
-  ) {
-    if (isCheckField) {
-      if (password.isEmpty) {
-        return "Password field is required";
+  static String? password({
+    String? password,
+    bool isCheckField = true,
+  }) {
+    if (password != null) {
+      if (password.isNotEmpty) {
+        if (!AppRegexs.password(password)) {
+          return "Password must be at least 6 characters long";
+        }
+      }
+    } else {
+      if (isCheckField) {
+        if (password == null || password.isEmpty) {
+          return "Password field is required";
+        }
       }
     }
-    if (password.isNotEmpty) {
-      if (!AppRegexs.password(password)) {
-        return "Password must be at least 6 characters long";
-      }
-    }
-    return "";
+
+    return null;
   }
 
-  static String confirmPassword(
-    String confirmPwd,
-    String password,
-    bool isCheckField,
-  ) {
-    if (isCheckField) {
-      if (confirmPwd.isEmpty) {
+  static String? confirmPassword({
+    String? confirmPwd,
+    String? password,
+    required bool isCheckField,
+  }) {
+    if (confirmPwd != null) {
+      if (confirmPwd.isNotEmpty) {
+        if (confirmPwd != password) {
+          return "Password and confirm password must be the same";
+        }
+      }
+    } else if (isCheckField) {
+      if (confirmPwd == null || confirmPwd.isEmpty) {
         return "Confirm password field is required";
       }
     }
-    if (confirmPwd.isNotEmpty) {
-      if (!AppRegexs.password(confirmPwd)) {
-        return "Password must be at least 6 characters long";
-      }
-    }
-    if (confirmPwd != password) {
-      return "Confirm password does not match password";
-    }
-    return "";
+    return null;
   }
 
-  static String name(String name, bool isCheckField) {
-    if (isCheckField) {
-      if (name.isEmpty) {
-        return "Your name field is required";
+  static String? name({
+    String? name,
+    bool isCheckField = true,
+  }) {
+    if (name != null) {
+      if (name.isNotEmpty) {
+        if (!AppRegexs.name(name)) {
+          return "Enter a valid name";
+        }
+      }
+    } else if (isCheckField) {
+      if (name == null || name.isEmpty) {
+        return "Name field is required";
       }
     }
-    if (name.isNotEmpty) {
-      if (name.contains("@")) {
-        return "Your name cannot contain the @ symbol.";
-      } else if (name.contains("#")) {
-        return "Your name cannot contain the # symbol.";
-      } else if (!AppRegexs.name(name)) {
-        return "Enter a valid your name";
+
+    return null;
+  }
+  static String? phone({
+    String? phone,
+    bool isCheckField = true,
+  }) {
+    if (phone != null) {
+      if (phone.isNotEmpty) {
+        if (!AppRegexs.phone(phone)) {
+          return "Enter a valid phone number";
+        }
+      }
+    } else if (isCheckField) {
+      if (phone == null || phone.isEmpty) {
+        return "Phone field is required";
       }
     }
-    return "";
+
+    return null;
   }
 }

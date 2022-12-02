@@ -7,9 +7,9 @@ const myProfile = async (req, res) => {
 	const currentUserId = req.user.id
 	const user = await User.findAll({
 		attributes: [
-			'first_name',
-			'last_name',
-			'main_address',
+			'firstName',
+			'lastName',
+			'mainAddress',
 			'birthday',
 			'gender',
 			'email',
@@ -29,6 +29,24 @@ const myProfile = async (req, res) => {
 	}
 }
 
+const currentUser = async (req, res) => {
+	const currentUserId = req.user.id
+	const user = await User.findAll({
+		attributes: [
+			'lastName',
+			'email',
+			'avatar',
+		],
+		where: {
+			id: currentUserId,
+		},
+	})
+	if (user.length > 0) {
+		return res.status(200).json(user[0])
+	} else {
+		res.status(400).json({ msg: 'Error' })
+	}
+}
 const updateProfile = async (req, res) => {
 	const currentUserId = req.user.id
 	const { firstName, lastName, mainAddress, birthday, gender, email, phone, password } = req.body
@@ -36,9 +54,9 @@ const updateProfile = async (req, res) => {
 		if (firstName && lastName && mainAddress && birthday && gender && email && phone) {
 			await User.update(
 				{
-					first_name: firstName,
-					last_name: lastName,
-					main_address: mainAddress,
+					firstName: firstName,
+					lastName: lastName,
+					mainAddress: mainAddress,
 					birthday: birthday,
 					gender: gender,
 					email: email,
@@ -62,4 +80,4 @@ const updateProfile = async (req, res) => {
 	}
 }
 
-module.exports = { myProfile, updateProfile }
+module.exports = { myProfile, updateProfile, currentUser }

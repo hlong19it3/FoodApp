@@ -1,17 +1,14 @@
+import 'package:foodapp/app/modules/base/bindings/base.binding.dart';
+import 'package:foodapp/app/modules/base/views/base.view.dart';
 import 'package:get/get.dart';
 
-import '../modules/auth/bindings/auth.binding.dart';
-import '../modules/auth/bindings/forgot_password.binding.dart';
-import '../modules/auth/bindings/login.binding.dart';
-import '../modules/auth/bindings/onboaring.binding.dart';
-import '../modules/auth/bindings/register.binding.dart';
-import '../modules/auth/views/auth.view.dart';
-import '../modules/auth/views/forgot_password.view.dart';
-import '../modules/auth/views/login.view.dart';
-import '../modules/auth/views/onboaring.view.dart';
-import '../modules/auth/views/register.view.dart';
+import '../modules/auth/presentation/bindings/auth.binding.dart';
+import '../modules/auth/presentation/bindings/onboaring.binding.dart';
+import '../modules/auth/presentation/views/auth.view.dart';
+import '../modules/auth/presentation/views/login.view.dart';
+import '../modules/auth/presentation/views/onboaring.view.dart';
+import '../modules/auth/presentation/views/register.view.dart';
 import '../modules/home/bindings/home.binding.dart';
-import '../modules/home/views/home.view.dart';
 
 part 'app_routes.dart';
 
@@ -22,7 +19,7 @@ class AppPages {
     GetPage(
       name: Routes.AUTH,
       page: () => const AuthView(),
-      bindings: [AuthBinding()],
+      binding: AuthBinding(),
     ),
     GetPage(
       name: Routes.WELCOME,
@@ -32,28 +29,20 @@ class AppPages {
     GetPage(
       name: Routes.LOGIN,
       page: () => const LoginView(),
-      binding: LoginBinding(),
+      binding: AuthBinding(),
     ),
     GetPage(
       name: Routes.REGISTER,
       page: () => const RegisterView(),
-      binding: RegisterBinding(),
+      binding: AuthBinding(),
     ),
     GetPage(
-      name: Routes.FORGOT_PASSWORD,
-      page: () => const ForgotPasswordView(),
-      binding: ForgotPasswordBinding(),
-    ),
-    ////////////
-    GetPage(
-      name: Routes.HOME,
-      page: () => const HomeView(),
-      binding: HomeBinding(),
-    ),
-
-    GetPage(
-      name: Routes.NOT_FOUND,
-      page: () => const HomeView(),
+      name: Routes.BASE,
+      page: () => const BaseView(),
+      bindings: [
+        BaseBinding(),
+        HomeBinding(),
+      ],
     ),
   ];
 }

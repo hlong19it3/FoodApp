@@ -1,26 +1,15 @@
 {
     "CurrentUnit": "₫",
     "Onboaring": {
-        "Title_1": "Hello.",
-        "Description_1": "Hãy đặt mục tiêu, quản lý, tiết kiệm, đầu tư và đạt được tự do tài chính cùng nhau",
-        "Title_2": "Biểu Đồ Phân Tích HIện Đại",
-        "Description_2": "Dễ dàng theo dõi thu nhập và chi phí với các biểu đồ chi tiết hiện đại",
-        "Title_3": "Tìm Kiếm Mọi Thứ",
-        "Description_3": "Tìm kiếm các giao dịch trong quá khứ với Bộ lọc thông minh để có kết quả chính xác và nhanh hơn",
-        "Title_4": "An Toàn Cao",
-        "Description_4": "Bảo mật thông tin của bạn một cách dễ dàng với phạm vi rộng của các tính năng của Finfree"
-    },
-    "Navigation": {
-        "Home": "Trang chủ",
-        "Stats": "Phân tích",
-        "Notes": "Ghi chú",
-        "More": "Cài đặt"
+        "Title_1": "Tất cả các mục yêu thích của bạn",
+        "Description_1": "Đặt hàng từ các nhà hàng địa phương tốt nhất với giao hàng dễ dàng, theo yêu cầu.",
+        "Title_2": "Chọn thức ăn của bạn",
+        "Description_2": "Dễ dàng tìm thấy loại đồ ăn mà bạn thèm ăn và bạn sẽ được giao hàng tận nơi trong phạm vi rộng."
     },
     "DioError": {
         "Cancel": "Request to API server was cancelled",
         "ConnectTimeout": "Connection timeout with API server",
         "ReceiveTimeout": "Receive timeout in connection with API server"
-
     },
     "Button": {
         "Save": "Lưu lại",

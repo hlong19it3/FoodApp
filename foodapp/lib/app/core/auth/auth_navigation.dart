@@ -27,7 +27,7 @@ class LoginNavigation extends Navigation {
 
 class HomeNavigation extends Navigation {
   @override
-  void navigation() => Get.offAllNamed(Routes.HOME);
+  void navigation() => Get.offAllNamed(Routes.BASE);
 }
 
 class NavigationFactory {

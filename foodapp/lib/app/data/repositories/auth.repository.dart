@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:foodapp/app/core/domain/entities/failure.entity.dart';
-import 'package:foodapp/app/domain/entities/user.entity.dart';
+import 'package:foodapp/app/modules/auth/domain/entity/user.entity.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/repositories/auth_repository.dart';
@@ -15,7 +15,18 @@ class AuthRepository implements IAuthRepository {
 
   @override
   Future<Either<AuthFailure, LoginResponseEntity>> login(
-      {required UserAuthEntity userAuth}) {
+      {required LoginEntity userAuth}) {
     return api.login(userAuth: userAuth);
+  }
+
+  @override
+  Future<Either<AuthFailure, bool>> register(
+      {required RegisterEntity userAuth}) {
+    return api.register(userAuth: userAuth);
+  }
+
+  @override
+  Future<Either<AuthFailure, CurrentUserEntity>> currentUser() {
+    return api.currentUser();
   }
 }

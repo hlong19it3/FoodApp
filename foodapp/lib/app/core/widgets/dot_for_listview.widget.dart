@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:foodapp/app/core/themes/app_colors.dart';
 
-import '../values/color_styles.dart';
 
 class DotForListView extends StatelessWidget {
   const DotForListView({
@@ -30,7 +30,7 @@ class DotForListView extends StatelessWidget {
           : 7,
       decoration: BoxDecoration(
         color: currentPage == index
-            ? ColorStyles.brand
+            ? AppColorStyles.red
             : Theme.of(context).iconTheme.color,
         borderRadius: BorderRadius.circular(5),
       ),

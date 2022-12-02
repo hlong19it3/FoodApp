@@ -3,15 +3,16 @@ const md5 = require('md5')
 const { Op } = require('sequelize')
 
 async function insert(user) {
+	console.log(user)
 	return await User.findOrCreate({
 		where: {
 			[Op.or]: [{ email: user.email }, { phone: user.phone }],
 		},
 		defaults: {
 			role: 1,
-			first_name: user.firstName,
-			last_name: user.lastName,
-			main_address: user.main_address || '',
+			firstName: user.firstName,
+			lastName: user.lastName,
+			mainAddress: user.address || '',
 			birthday: user.birthday,
 			gender: user.gender,
 			email: user.email,
@@ -36,9 +37,9 @@ async function findAll() {
 //   // } = req.body;
 //   await User.update(
 //     {
-//       first_name: firstName,
-//       last_name: lastName,
-//       main_address: mainAddress,
+//       firstName: firstName,
+//       lastName: lastName,
+//       mainAddress: mainAddress,
 //       birthday: birthday,
 //       gender: gender,
 //       email: email,

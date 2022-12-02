@@ -4,7 +4,6 @@ class ExampleController {
 	initDatabase(req, res) {
 		const { sequelize } = require('../../database/models')
 		sequelize.sync({ force: true })
-		console.log(Date.now().toString())
 		res.send('done')
 	}
 

@@ -44,7 +44,7 @@ const Food = sequelize.define(
 			autoIncrement: true,
 			primaryKey: true,
 		},
-		restaurant_id: {
+		restaurantId: {
 			type: DataTypes.INTEGER,
 			allowNull: true,
 		},
@@ -71,13 +71,13 @@ const Food = sequelize.define(
 			type: DataTypes.INTEGER,
 			defaultValue: 0,
 		},
-		start_sell: {
+		startSell: {
 			type: DataTypes.TIME,
 		},
-		end_sell: {
+		endSell: {
 			type: DataTypes.TIME,
 		},
-		category_id: {
+		categoryId: {
 			type: DataTypes.INTEGER,
 			allowNull: true,
 		},
@@ -99,11 +99,11 @@ const Menu = sequelize.define(
 			autoIncrement: true,
 			primaryKey: true,
 		},
-		food_id: {
+		foodId: {
 			type: DataTypes.STRING,
 			defaultValue: '',
 		},
-		restaurant_id: {
+		restaurantId: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
 		},
@@ -120,17 +120,17 @@ const Menu = sequelize.define(
 )
 
 const OrderDetail = sequelize.define(
-	'order_detail',
+	'orderDetail',
 	{
 		id: {
 			type: DataTypes.INTEGER,
 			autoIncrement: true,
 			primaryKey: true,
 		},
-		food_id: {
+		foodId: {
 			type: DataTypes.INTEGER,
 		},
-		order_id: {
+		orderId: {
 			type: DataTypes.INTEGER,
 		},
 		quantity: {
@@ -139,10 +139,6 @@ const OrderDetail = sequelize.define(
 		amount: {
 			type: DataTypes.INTEGER,
 		},
-		// created_at: {
-		//   type: DataTypes.DATE,
-		//   defaultValue: DataTypes.NOW,
-		// },
 	},
 	{
 		timestamps: true,
@@ -157,25 +153,25 @@ const Order = sequelize.define(
 			autoIncrement: true,
 			primaryKey: true,
 		},
-		customer_id: {
+		customerId: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
 		},
-		restaurant_id: {
+		restaurantId: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
 		},
-		order_date: {
+		orderDate: {
 			type: DataTypes.DATE,
 			allowNull: false,
 		},
-		total_amount: {
+		totalAmount: {
 			type: DataTypes.INTEGER,
 		},
-		order_status: {
+		orderStatus: {
 			type: DataTypes.INTEGER,
 		},
-		// created_at: {
+		// createdAt: {
 		//   type: DataTypes.DATE,
 		//   defaultValue: DataTypes.NOW,
 		// },
@@ -193,10 +189,10 @@ const Rating = sequelize.define(
 			autoIncrement: true,
 			primaryKey: true,
 		},
-		customer_id: {
+		customerId: {
 			type: DataTypes.INTEGER,
 		},
-		order_id: {
+		orderId: {
 			type: DataTypes.INTEGER,
 		},
 		score: {
@@ -219,7 +215,7 @@ const Restaurant = sequelize.define(
 		name: {
 			type: DataTypes.STRING,
 		},
-		user_id: {
+		userId: {
 			type: DataTypes.INTEGER,
 		},
 		address: {
@@ -248,15 +244,15 @@ const User = sequelize.define(
 			type: DataTypes.INTEGER,
 			defaultValue: 1,
 		},
-		first_name: {
+		firstName: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		last_name: {
+		lastName: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		main_address: {
+		mainAddress: {
 			type: DataTypes.STRING,
 		},
 		birthday: {
@@ -281,10 +277,10 @@ const User = sequelize.define(
 			type: DataTypes.TINYINT,
 			defaultValue: 0,
 		},
-		// registration_time: {
+		// registrationTime: {
 		//   type: DataTypes.DATE,
 		// },
-		last_action: {
+		lastAction: {
 			type: DataTypes.DATE,
 			defaultValue: DataTypes.NOW,
 		},
@@ -298,13 +294,13 @@ const User = sequelize.define(
 		},
 		avatar: {
 			type: DataTypes.STRING,
-			defaultValue: '',
+			defaultValue: 'https://avatars.githubusercontent.com/u/56586682?v=4',
 		},
-		refresh_token: {
+		refreshToken: {
 			type: DataTypes.STRING(2000),
 			defaultValue: '',
 		},
-		// created_at: {
+		// createdAt: {
 		//   type: DataTypes.DATE,
 		//   defaultValue: DataTypes.NOW,
 		// },
@@ -322,7 +318,7 @@ const Voucher = sequelize.define(
 			autoIncrement: true,
 			primaryKey: true,
 		},
-		restaurant_id: {
+		restaurantId: {
 			type: DataTypes.INTEGER,
 		},
 		name: {
@@ -341,51 +337,51 @@ const Voucher = sequelize.define(
 )
 
 User.hasOne(Address, {
-	foreignKey: 'user_id',
+	foreignKey: 'userId',
 })
 
 User.hasMany(Order, {
-	foreignKey: 'user_id',
+	foreignKey: 'userId',
 })
 
 User.hasOne(Restaurant, {
-	foreignKey: 'user_id',
+	foreignKey: 'userId',
 })
 
 User.hasMany(Rating, {
-	foreignKey: 'user_id',
+	foreignKey: 'userId',
 })
 
 Order.hasMany(OrderDetail, {
-	foreignKey: 'order_id',
+	foreignKey: 'orderId',
 })
 
 Order.hasOne(Rating, {
-	foreignKey: 'order_id',
+	foreignKey: 'orderId',
 })
 
 Food.hasMany(OrderDetail, {
-	foreignKey: 'food_id',
+	foreignKey: 'foodId',
 })
 
 Category.hasMany(Food, {
-	foreignKey: 'category_id',
+	foreignKey: 'categoryId',
 })
 
 Restaurant.hasOne(Menu, {
-	foreignKey: 'restaurant_id',
+	foreignKey: 'restaurantId',
 })
 
 // Restaurant.hasMany(Food, {
-// 	foreignKey: 'restaurant_id',
+// 	foreignKey: 'restaurantId',
 // })
 
 Restaurant.hasMany(Order, {
-	foreignKey: 'restaurant_id',
+	foreignKey: 'restaurantId',
 })
 
 Restaurant.hasMany(Voucher, {
-	foreignKey: 'restaurant_id',
+	foreignKey: 'restaurantId',
 })
 
 // Sync all tables in database

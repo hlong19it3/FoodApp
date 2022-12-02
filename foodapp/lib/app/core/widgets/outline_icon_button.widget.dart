@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../values/color_styles.dart';
+import '../themes/app_colors.dart';
 import 'app_svg_picture.widget.dart';
 
 class OutlineIconButton extends StatelessWidget {
@@ -29,7 +29,7 @@ class OutlineIconButton extends StatelessWidget {
             Radius.circular(15),
           ),
           border: Border.all(
-            color: Theme.of(context).iconTheme.color ?? ColorStyles.border,
+            color: Theme.of(context).iconTheme.color ?? AppColorStyles.black10,
           ),
         ),
         child: Padding(

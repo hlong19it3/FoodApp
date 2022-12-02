@@ -5,6 +5,24 @@ const handlebar = require('express-handlebars')
 const md5 = require('md5')
 const port = 3000
 
+const swaggerUI = require("swagger-ui-express");
+const swaggerJsDoc = require("swagger-jsdoc");
+
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Ninja FOOD API",
+      version: "1.0.0",
+      description: "A simple Express Food API",
+    },
+  },
+  apis: ["./Routes/*.js"],
+};
+
+const specs = swaggerJsDoc(options);
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
+
 app.use(
 	express.urlencoded({
 		extended: true,
