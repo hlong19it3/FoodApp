@@ -31,5 +31,7 @@ _i1.GetIt $initGetIt(
       () => _i5.AuthRepository(api: get<_i3.IAuthProvider>()));
   gh.lazySingleton<_i6.LoginUseCase>(
       () => _i6.LoginUseCase(get<_i4.IAuthRepository>()));
+  gh.lazySingleton<_i6.RegisterUseCase>(
+      () => _i6.RegisterUseCase(get<_i4.IAuthRepository>()));
   return get;
 }

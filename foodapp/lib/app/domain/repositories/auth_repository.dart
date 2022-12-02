@@ -5,6 +5,9 @@ import '../../modules/auth/domain/entity/user.entity.dart';
 
 abstract class IAuthRepository {
   Future<Either<AuthFailure, LoginResponseEntity>> login({
-    required UserAuthEntity userAuth,
+    required LoginEntity userAuth,
+  });
+  Future<Either<AuthFailure, bool>> register({
+    required RegisterEntity userAuth,
   });
 }

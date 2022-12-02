@@ -15,7 +15,12 @@ class AuthRepository implements IAuthRepository {
 
   @override
   Future<Either<AuthFailure, LoginResponseEntity>> login(
-      {required UserAuthEntity userAuth}) {
+      {required LoginEntity userAuth}) {
     return api.login(userAuth: userAuth);
+  }
+  
+  @override
+  Future<Either<AuthFailure, bool>> register({required RegisterEntity userAuth}) {
+    return api.register(userAuth: userAuth);
   }
 }

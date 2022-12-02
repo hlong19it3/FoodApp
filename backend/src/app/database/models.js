@@ -286,7 +286,7 @@ const User = sequelize.define(
 		// },
 		last_action: {
 			type: DataTypes.DATE,
-			defaultValue: Date.now(),
+			// defaultValue: Date.now(),
 		},
 		lat: {
 			type: DataTypes.FLOAT,
