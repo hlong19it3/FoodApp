@@ -23,9 +23,12 @@ class AuthBinding extends Bindings {
       () => LoginController(
         loginUseCase: getIt.get<LoginUseCase>(),
       ),
+      fenix: true,
     );
     Get.lazyPut<RegisterController>(
-      () => RegisterController(),
+      () => RegisterController(
+        registerUseCase: getIt.get<RegisterUseCase>(),
+      ),
     );
     Get.lazyPut<ForgotPasswordController>(
       () => ForgotPasswordController(),

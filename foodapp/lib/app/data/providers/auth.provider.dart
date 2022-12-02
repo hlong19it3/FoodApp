@@ -7,7 +7,10 @@ import '../../modules/auth/domain/entity/user.entity.dart';
 
 abstract class IAuthProvider {
   Future<Either<AuthFailure, LoginResponseEntity>> login({
-    required UserAuthEntity userAuth,
+    required LoginEntity userAuth,
+  });
+  Future<Either<AuthFailure, bool>> register({
+    required RegisterEntity userAuth,
   });
 }
 
@@ -15,7 +18,7 @@ abstract class IAuthProvider {
 class AuthProvider implements IAuthProvider {
   @override
   Future<Either<AuthFailure, LoginResponseEntity>> login({
-    required UserAuthEntity userAuth,
+    required LoginEntity userAuth,
   }) async {
     try {
       HttpResponse res = await HttpHelper.post(
@@ -23,6 +26,21 @@ class AuthProvider implements IAuthProvider {
         data: userAuth.toJson(),
       );
       return Right(LoginResponseEntity.fromJson(res.body));
+    } catch (e) {
+      return Left(AuthFailure(code: "100"));
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, bool>> register({
+    required RegisterEntity userAuth,
+  }) async {
+    try {
+      await HttpHelper.post(
+        "signup",
+        data: userAuth.toJson(),
+      );
+      return const Right(true);
     } catch (e) {
       return Left(AuthFailure(code: "100"));
     }

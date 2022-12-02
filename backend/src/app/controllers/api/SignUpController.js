@@ -5,6 +5,7 @@ const { statusCode } = require('../../common/constants')
 const signUp = async (req, res) => {
 	const { email, role, firstName, lastName, address, birthday, gender, phone, password } = req.body
 	if (firstName && lastName && gender && email && password && phone) {
+		
 		await userDao
 			.insert({
 				firstName,

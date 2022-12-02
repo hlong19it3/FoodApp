@@ -18,41 +18,39 @@ ThemeData lightTheme(BuildContext context) {
         statusBarIconBrightness:
             Brightness.dark, //set as per your status bar icons' color
         systemNavigationBarIconBrightness: Brightness.dark,
-        
       ),
     ),
     primaryColor: ColorStyles.primary,
     scaffoldBackgroundColor: ColorStyles.backgrounDeep,
-    colorScheme: const ColorScheme.light(
-      primary: Colors.red,
-      secondary: ColorStyles.secondary,
-      surface: Colors.white,
-      // on light theme surface = Colors.white by default
-    ),
-    backgroundColor: Colors.white,
-    // accentColor: Colors.white, => secondary 
+    // accentColor: Colors.white, => secondary
     iconTheme: const IconThemeData(color: ColorStyles.bodyText),
     // accentIconTheme: IconThemeData(color:  ColorContants.accentIcon),
     primaryIconTheme: const IconThemeData(color: ColorStyles.primaryIcon),
     // inputDecorationTheme: inputDecorationTheme(context),
     textTheme: GoogleFonts.robotoTextTheme().copyWith(
-      bodyText1: const TextStyle(
+      bodyLarge: const TextStyle(
         color: ColorStyles.titleText,
         fontSize: 20,
         fontWeight: FontWeight.bold,
       ),
-      bodyText2: const TextStyle(
+      bodyMedium: const TextStyle(
         color: ColorStyles.titleText,
       ),
-      headline4: const TextStyle(
+      headlineMedium: const TextStyle(
         color: ColorStyles.titleText,
         fontSize: 25,
         fontWeight: FontWeight.w800,
       ),
-      headline1: const TextStyle(
+      displayLarge: const TextStyle(
         color: ColorStyles.titleText,
         fontSize: 80,
       ),
     ),
+    colorScheme: const ColorScheme.light(
+      primary: Colors.red,
+      secondary: ColorStyles.secondary,
+      surface: Colors.white,
+      // on light theme surface = Colors.white by default
+    ).copyWith(background: Colors.white),
   );
 }

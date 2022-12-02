@@ -20,15 +20,17 @@ class AppLoading {
         seconds: 1,
       ),
     );
+    dismiss();
   }
 
-  static error(String status) {
-    return EasyLoading.showError(
+  static error(String status) async {
+    await EasyLoading.showError(
       status,
       dismissOnTap: true,
       duration: const Duration(
         seconds: 2,
       ),
     );
+    dismiss();
   }
 }

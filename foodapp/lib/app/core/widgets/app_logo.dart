@@ -12,13 +12,14 @@ class AppLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: size ?? 100,
-      width: size ?? 100,
+    return Container(
+      color: Colors.transparent,
+      height: size ?? 203,
+      width: size ?? 188,
       child: Center(
         child: SvgPicture.asset(
           AppData.logo,
-          // fit: BoxFit.cover,
+          fit: BoxFit.cover,
         ),
       ),
     );

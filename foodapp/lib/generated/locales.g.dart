@@ -92,12 +92,12 @@ class Locales {
   };
   static const vi = {
     'CurrentUnit': '₫',
-    'Onboaring_Title_1': 'All your favorites',
+    'Onboaring_Title_1': 'Tất cả các mục yêu thích của bạn',
     'Onboaring_Description_1':
-        'Order from the best local restaurants with easy, on-demand delivery.',
-    'Onboaring_Title_2': 'Choose your food',
+        'Đặt hàng từ các nhà hàng địa phương tốt nhất với giao hàng dễ dàng, theo yêu cầu.',
+    'Onboaring_Title_2': 'Chọn thức ăn của bạn',
     'Onboaring_Description_2':
-        'Easily find your type of food craving and you’ll get delivery in wide range.',
+        'Dễ dàng tìm thấy loại đồ ăn mà bạn thèm ăn và bạn sẽ được giao hàng tận nơi trong phạm vi rộng.',
     'DioError_Cancel': 'Request to API server was cancelled',
     'DioError_ConnectTimeout': 'Connection timeout with API server',
     'DioError_ReceiveTimeout': 'Receive timeout in connection with API server',

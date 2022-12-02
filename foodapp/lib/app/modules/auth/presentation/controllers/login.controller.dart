@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:foodapp/app/core/services/stores/box.storage.dart';
+import 'package:foodapp/app/core/utils/app_regexs.dart';
 import 'package:get/get.dart';
 
 import '../../../../../generated/locales.g.dart';
 import '../../../../core/services/stores/secure.storage.dart';
 import '../../../../core/utils/app_loading.dart';
-import '../../../../core/utils/app_validations.dart';
 import '../../domain/entity/user.entity.dart';
 import '../../../../domain/usecases/auth.usecase.dart';
 import '../../../../routes/app_pages.dart';
@@ -18,7 +18,7 @@ class LoginController extends GetxController {
     required this.loginUseCase,
   });
 
-  Rx<UserAuthEntity> userLogin = UserAuthEntity(email: "", password: "").obs;
+  Rx<LoginEntity> userLogin = LoginEntity(email: "", password: "").obs;
   TextEditingController emailController = TextEditingController(text: "");
   RxBool isShowPwd = false.obs;
   RxBool isValidForm = false.obs;
@@ -26,13 +26,7 @@ class LoginController extends GetxController {
   RxBool isSubmitedForm = false.obs;
 
   bool get isCheckValid => isCheckForm.value;
-  UserAuthEntity get user => userLogin.value;
-
-  @override
-  void onInit() {
-    getLocalUserData();
-    super.onInit();
-  }
+  LoginEntity get user => userLogin.value;
 
   void onChangeData(UserAuthEnum userAuthEnum, String data) {
     isCheckForm.value = false;
@@ -49,50 +43,43 @@ class LoginController extends GetxController {
         });
         break;
     }
-    checkForm();
   }
 
   void checkForm() {
     isCheckForm.value = true;
-    if (AppValidations.email(email: user.email) == "" &&
-        AppValidations.password(password: user.password) == "") {
+    if (AppRegexs.email(user.email) && AppRegexs.password(user.password)) {
       isValidForm.value = true;
     } else {
       isValidForm.value = false;
     }
   }
 
-  void getLocalUserData() async {
-    user.email = emailController.text =
-        await SecureStorage.read(key: SecureKey.email) ?? "";
-  }
-
   Future<void> loginWithEmail() async {
-    isCheckForm.value = true;
-    if (isValidForm.value && isSubmitedForm.isFalse) {
-      isSubmitedForm.value = true;
-      AppLoading.loading();
-      var reponse = await loginUseCase.call(user);
-      reponse.fold(
-        (e) {
-          AppLoading.error(e.message ?? LocaleKeys.Auth_Error_LoginFailed.tr);
-          isSubmitedForm.value = false;
-        },
-        (data) async {
-          await SecureStorage.write(key: SecureKey.email, value: user.email);
-          await KeyStorage.writeString(
-              key: KeyKey.token, value: data.accessToken!);
-          await KeyStorage.writeString(
-              key: KeyKey.refreshToken, value: data.refreshToken!);
-          AppLoading.success(LocaleKeys.Auth_Alert_Welcome.tr);
+    try {
+      checkForm();
+      if (isValidForm.value && isSubmitedForm.isFalse) {
+        isSubmitedForm.value = true;
+        AppLoading.loading();
+        var reponse = await loginUseCase.call(user);
+        reponse.fold(
+          (e) {
+            throw e;
+          },
+          (data) async {
+            await SecureStorage.write(key: SecureKey.email, value: user.email);
+            await KeyStorage.writeString(
+                key: KeyKey.token, value: data.tokens.accessToken!);
+            await KeyStorage.writeString(
+                key: KeyKey.refreshToken, value: data.tokens.refreshToken!);
+            AppLoading.success(LocaleKeys.Auth_Alert_Welcome.tr);
 
-          Get.offAllNamed(Routes.HOME);
-        },
-      );
+            Get.offAllNamed(Routes.HOME);
+          },
+        );
+      }
+    } catch (e) {
+      AppLoading.error(LocaleKeys.Auth_Error_LoginFailed.tr);
+      isSubmitedForm.value = false;
     }
-  }
-
-  Future<void> signInWithGoogle() async {
-    // await signInWithGoogleUseCase.call(NoParams());
   }
 }
