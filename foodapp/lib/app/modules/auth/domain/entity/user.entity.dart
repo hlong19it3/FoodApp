@@ -73,3 +73,18 @@ class RegisterEntity {
 
   Map<String, dynamic> toJson() => _$RegisterEntityToJson(this);
 }
+
+@JsonSerializable()
+class CurrentUserEntity {
+  String? lastName;
+  String? email;
+  String? avatar;
+  CurrentUserEntity({
+    this.lastName,
+    this.email,
+    this.avatar,
+  });
+
+  factory CurrentUserEntity.fromJson(Map<String, dynamic> json) =>
+      _$CurrentUserEntityFromJson(json);
+}

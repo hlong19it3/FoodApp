@@ -72,3 +72,17 @@ Map<String, dynamic> _$RegisterEntityToJson(RegisterEntity instance) =>
       'confirmPassword': instance.confirmPassword,
       'role': instance.role,
     };
+
+CurrentUserEntity _$CurrentUserEntityFromJson(Map<String, dynamic> json) =>
+    CurrentUserEntity(
+      lastName: json['lastName'] as String?,
+      email: json['email'] as String?,
+      avatar: json['avatar'] as String?,
+    );
+
+Map<String, dynamic> _$CurrentUserEntityToJson(CurrentUserEntity instance) =>
+    <String, dynamic>{
+      'lastName': instance.lastName,
+      'email': instance.email,
+      'avatar': instance.avatar,
+    };

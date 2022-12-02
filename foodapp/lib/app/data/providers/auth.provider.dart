@@ -12,6 +12,8 @@ abstract class IAuthProvider {
   Future<Either<AuthFailure, bool>> register({
     required RegisterEntity userAuth,
   });
+
+  Future<Either<AuthFailure, CurrentUserEntity>> currentUser();
 }
 
 @Injectable(as: IAuthProvider)
@@ -41,6 +43,16 @@ class AuthProvider implements IAuthProvider {
         data: userAuth.toJson(),
       );
       return const Right(true);
+    } catch (e) {
+      return Left(AuthFailure(code: "100"));
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, CurrentUserEntity>> currentUser() async {
+    try {
+      final res = await HttpHelper.get("auth/current-user");
+      return Right(CurrentUserEntity.fromJson(res.body));
     } catch (e) {
       return Left(AuthFailure(code: "100"));
     }

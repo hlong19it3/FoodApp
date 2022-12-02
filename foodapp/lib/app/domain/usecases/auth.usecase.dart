@@ -24,8 +24,18 @@ class RegisterUseCase implements UseCase<void, RegisterEntity> {
   RegisterUseCase(this._authRepository);
 
   @override
-  Future<Either<AuthFailure, bool>> call(
-      RegisterEntity userAuth) async {
+  Future<Either<AuthFailure, bool>> call(RegisterEntity userAuth) async {
     return _authRepository.register(userAuth: userAuth);
+  }
+}
+
+@lazySingleton
+class CurrentUserUseCase implements UseCase<void, NoParams> {
+  final IAuthRepository _authRepository;
+  CurrentUserUseCase(this._authRepository);
+
+  @override
+  Future<Either<AuthFailure, CurrentUserEntity>> call(NoParams noParams) async {
+    return _authRepository.currentUser();
   }
 }

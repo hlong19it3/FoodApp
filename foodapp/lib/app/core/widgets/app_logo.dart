@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../values/app_data.dart';
 
@@ -14,10 +13,10 @@ class AppLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.transparent,
-      height: size ?? 203,
-      width: size ?? 188,
+      height: size ?? 100,
+      width: size ?? 100,
       child: Center(
-        child: SvgPicture.asset(
+        child: Image.asset(
           AppData.logo,
           fit: BoxFit.cover,
         ),

@@ -3,7 +3,8 @@ const { sequelize, User } = require('./../app/database/models')
 require('dotenv').config()
 
 const checkToken = async (req, res, next) => {
-	const inputToken = req.headers['x-accesstoken']
+	const inputToken = req.headers['authorization'].split(' ')[1]
+	console.log(inputToken)
 	try {
 		const dataObj = verify(inputToken, process.env.JWT_SECRET)
 		// find user in db

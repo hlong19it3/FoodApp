@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:foodapp/app/core/themes/app_colors.dart';
 
-import '../values/app_colors.dart';
 import 'app_input_icon.dart';
 import 'components/outline_input_border.dart';
 
@@ -74,10 +74,10 @@ class AppInput extends StatelessWidget {
         hintText: hintText,
         errorStyle: errorText == ""
             ? const TextStyle(height: 0)
-            : TextStyle(color: AppColors.error),
+            : const TextStyle(color: AppColorStyles.red),
         suffixIcon: suffixIcon,
-        hintStyle: TextStyle(
-          color: AppColors.iconColor,
+        hintStyle: const TextStyle(
+          color: AppColorStyles.black10,
         ),
       ),
       inputFormatters: inputFormatters ?? [],

@@ -1,6 +1,8 @@
-import 'package:foodapp/app/core/values/app_colors.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../themes/app_colors.dart';
 
 class AppSvgPicture extends StatelessWidget {
   const AppSvgPicture({
@@ -18,7 +20,7 @@ class AppSvgPicture extends StatelessWidget {
       fit: BoxFit.scaleDown,
       child: SvgPicture.asset(
         icon,
-        color: color ?? AppColors.iconColor,
+        color: color ?? AppColorStyles.black10,
         height: size ?? 20,
         width: size ?? 20,
       ),

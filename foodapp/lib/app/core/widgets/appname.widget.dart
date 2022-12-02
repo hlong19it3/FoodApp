@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:foodapp/app/core/themes/app_colors.dart';
 
-import '../values/app_colors.dart';
 import '../values/app_data.dart';
 
 class AppName extends StatelessWidget {
@@ -12,11 +12,11 @@ class AppName extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       AppData.name.toUpperCase(),
-      style: TextStyle(
+      style: const TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: 25,
         letterSpacing: 7,
-        color: AppColors.text,
+        color: AppColorStyles.black10,
       ),
     );
   }

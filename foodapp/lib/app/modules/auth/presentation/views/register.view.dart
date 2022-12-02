@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:foodapp/app/core/themes/app_colors.dart';
 import 'package:get/get.dart';
 
 import '../../../../../app_responsive.widget.dart';
 import '../../../../../generated/assets.gen.dart';
 import '../../../../core/utils/app_validations.dart';
-import '../../../../core/values/color_styles.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/app_input.dart';
 import '../../../../core/widgets/app_logo.dart';
@@ -25,13 +25,13 @@ class RegisterView extends GetView<RegisterController> {
       child: GetX<RegisterController>(
         builder: (controller) => AppResponsive(
           mobileScreen: _buildMobileScreen(),
-          desktopScreen: _buildRegisterScreen(),
+          desktopScreen: _buildDesktopScreen(),
         ),
       ),
     );
   }
 
-  Widget _buildRegisterScreen() {
+  Widget _buildDesktopScreen() {
     return Scaffold(
       appBar: const AppBarWithIconBack(),
       body: Row(
@@ -201,11 +201,11 @@ class RegisterView extends GetView<RegisterController> {
         const Text("Already have an account? "),
         InkWell(
           onTap: () => Get.back(),
-          child: const Text(
+          child: Text(
             "Login",
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: ColorStyles.primary,
+              color: AppColorStyles.blue.shade700,
             ),
           ),
         ),
@@ -267,11 +267,11 @@ class RegisterView extends GetView<RegisterController> {
         ),
         InkWell(
           onTap: () => controller.launchOurTermAndPolicies(),
-          child: const Text(
+          child: Text(
             "Our terms and policies.",
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: ColorStyles.primary,
+              color: AppColorStyles.blue.shade700,
             ),
           ),
         ),

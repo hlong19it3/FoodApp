@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../themes/app_colors.dart';
 import 'app_svg_picture.widget.dart';
 
 class AppIconButton extends StatelessWidget {
@@ -27,7 +28,7 @@ class AppIconButton extends StatelessWidget {
         width: width,
         decoration: BoxDecoration(
           border: Border.all(
-            color: Theme.of(context).iconTheme.color!,
+            color: AppColorStyles.black10,
           ),
           borderRadius: BorderRadius.circular(10),
         ),
@@ -43,6 +44,7 @@ class AppIconButton extends StatelessWidget {
             child: AppSvgPicture(
               icon: icon,
               size: iconSize,
+              color: AppColorStyles.black10,
             ),
           ),
         ),

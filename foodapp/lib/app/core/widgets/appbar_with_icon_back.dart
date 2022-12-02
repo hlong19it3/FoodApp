@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../generated/assets.gen.dart';
-import 'icon_button_default.widget.dart';
+import 'app_icon_button.widget.dart';
 
 class AppBarWithIconBack extends StatelessWidget
     implements PreferredSizeWidget {

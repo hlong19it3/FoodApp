@@ -1,58 +1,30 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+
+enum AppTab { HOME, FAVORITE, PROFILE, RECEIPT }
 
 class BaseController extends GetxController {
   static BaseController get to => Get.find();
 
-  // final List<String> _pages = [
-  //   Routes.HOME,
-  //   Routes.EXPLORE,
-  //   Routes.FAVOURITES,
-  //   Routes.PROFILE,
-  // ];
+  final RxInt _currentPage = AppTab.HOME.index.obs;
 
-  // RxString _language = "".obs;
-  // RxString _currentPage = Routes.HOME.obs;
+  int get currentPage => _currentPage.value;
+  set currentPage(int value) => _currentPage.value = value;
 
-  // String get currentLanguage => _language.value;
+  PageController pageController =
+      PageController(initialPage: AppTab.HOME.index);
 
-  // int get currentPageIndex => _pages.indexWhere((_) => _ == _currentPage.value);
+  void onPageChanged(int pageIndex) {
+    currentPage = pageIndex;
+    pageController.jumpToPage(pageIndex);
+  }
 
-  // @override
-  // void onInit() {
-  //   _setInitialLocalLanguage();
-  //   super.onInit();
-  // }
-
-  // _setInitialLocalLanguage() {
-  //   String? locate = _store.read<String?>(AppStorageKey.LANGUAGE);
-  //   if (locate == '' || locate == null) {
-  //     locate = Get.deviceLocale!.languageCode;
-  //   }
-  //   updateLanguage(locate);
-  // }
-
-  // Locale get getLocale {
-  //   if (currentLanguage == '') {
-  //     _language.value = AppConfig.DEFAULT_LANGUAGE;
-  //     updateLanguage(AppConfig.DEFAULT_LANGUAGE);
-  //   }
-  //   final Locale locale =
-  //       SUPPORTED_LOCALES.firstWhere((l) => l.languageCode == currentLanguage);
-  //   return locale;
-  // }
-
-  // Future<void> updateLanguage(String value) async {
-  //   _language.value = value;
-  //   await _store.write(AppStorageKey.LANGUAGE, value);
-  //   Get.updateLocale(getLocale);
-  //   update();
-  // }
-
-  // void onCurrentTabChanged(int tabIndex) {
-  //   final String selectedPage = _pages[tabIndex];
-  //   //
-  //   _currentPage.value = selectedPage;
-  //   //
-  //   Get.offAllNamed(selectedPage);
-  // }
+  void onPageChangedWithAnimation(int pageIndex) {
+    currentPage = pageIndex;
+    pageController.animateToPage(
+      pageIndex,
+      duration: const Duration(microseconds: 800),
+      curve: Curves.decelerate,
+    );
+  }
 }

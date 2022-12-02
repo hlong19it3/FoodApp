@@ -21,10 +21,10 @@ const getAll = async (req, res) => {
 }
 
 const create = async (req, res) => {
-  const { name, price, details, quantity, category_id, start_sell, end_sell } =
+  const { name, price, details, quantity, categoryId, startSell, endSell } =
     req.body
   console.log(req.file)
-  // const date = Date.parse('1/1/2000 ' + food.start_sell)
+  // const date = Date.parse('1/1/2000 ' + food.startSell)
   // console.log(format(date, 'HH:mm:ss'))
   if (name && price) {
     await restaurantDao.selectUserId(req.user.id).then(
@@ -39,13 +39,13 @@ const create = async (req, res) => {
           await foodDao
             .insert({
               name: name,
-              restaurant_id: restaurant.id,
+              restaurantId: restaurant.id,
               price: price,
               details: details,
               quantity: quantity,
-              category_id: category_id,
-              start_sell: start_sell,
-              end_sell: end_sell,
+              categoryId: categoryId,
+              startSell: startSell,
+              endSell: endSell,
               image: image,
             })
             .then(
@@ -90,9 +90,9 @@ const update = async (req, res) => {
     price,
     details,
     quantity,
-    category_id,
-    start_sell,
-    end_sell,
+    categoryId,
+    startSell,
+    endSell,
   } = req.body
   if (name && price) {
     await restaurantDao.selectUserId(req.user.id).then(
@@ -108,13 +108,13 @@ const update = async (req, res) => {
             .update({
               id: id,
               name: name,
-              restaurant_id: restaurant.id,
+              restaurantId: restaurant.id,
               price: price,
               details: details,
               quantity: quantity,
-              category_id: category_id,
-              start_sell: start_sell,
-              end_sell: end_sell,
+              categoryId: categoryId,
+              startSell: startSell,
+              endSell: endSell,
               image: image,
             })
             .then(

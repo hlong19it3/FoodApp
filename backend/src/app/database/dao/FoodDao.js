@@ -8,7 +8,7 @@ async function getAll() {
 async function insert(food) {
   return await Food.findOrCreate({
     where: {
-      restaurant_id: food.restaurant_id,
+      restaurantId: food.restaurantId,
       name: food.name,
     },
     defaults: {
@@ -17,9 +17,9 @@ async function insert(food) {
       image: food.image,
       quatity: food.quatity,
       sold: food.sold,
-      start_sell: food.start_sell,
-      end_sell: food.end_sell,
-      category_id: food.category_id,
+      startSell: food.startSell,
+      endSell: food.endSell,
+      categoryId: food.categoryId,
     },
   })
 }
@@ -33,9 +33,9 @@ async function update(food) {
       image: food.image,
       quatity: food.quatity,
       sold: food.sold,
-      start_sell: food.start_sell,
-      end_sell: food.end_sell,
-      category_id: food.category_id,
+      startSell: food.startSell,
+      endSell: food.endSell,
+      categoryId: food.categoryId,
     },
     {
       where: {
@@ -56,14 +56,14 @@ async function selectById(id) {
 async function selectByRestaurantId(restaurantId) {
   return await Food.findAll({
     where: {
-      restaurant_id: restaurantId,
+      restaurantId: restaurantId,
     },
   })
 }
 async function selectByCategoryId(categoryId) {
   return await Food.findAll({
     where: {
-      category_id: categoryId,
+      categoryId: categoryId,
     },
   })
 }
