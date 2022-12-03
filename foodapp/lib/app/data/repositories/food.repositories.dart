@@ -17,4 +17,19 @@ class FoodRepositories implements IFoodRepositories {
   Future<Either<AppFailure, List<FoodEntity>>> getAll() {
     return api.getAll();
   }
+
+  @override
+  Future<Either<AppFailure, List<FoodEntity>>> getPopular(String? value) {
+    return api.getPopular(value);
+  }
+
+  @override
+  Future<Either<AppFailure, List<FoodEntity>>> getTopRated() {
+    return api.getTopRated();
+  }
+
+  @override
+  Future<Either<AppFailure, DetailFoodEntity>> getDetail(int foodId) {
+    return api.getDetail(foodId);
+  }
 }

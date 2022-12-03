@@ -10,6 +10,7 @@ class KeyStorage {
     required String value,
   }) async {
     box.write(key.name, value);
+
     debugPrint("-- [KeyStorage WRITE] --: ${key.name} - $value");
   }
 
@@ -17,7 +18,9 @@ class KeyStorage {
     required KeyKey key,
   }) async {
     String? value = box.read(key.name);
-    debugPrint("-- [KeyStorage READ] --: ${key.name} - $value");
+    if (key.name != KeyKey.token.name) {
+      debugPrint("-- [KeyStorage READ] --: ${key.name} - $value");
+    }
     return value;
   }
 

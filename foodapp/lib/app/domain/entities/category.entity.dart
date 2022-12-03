@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part '../entity.g/category.entity.g.dart';
+part 'category.entity.g.dart';
 
 @JsonSerializable()
 class CategoryEntity {

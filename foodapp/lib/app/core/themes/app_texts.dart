@@ -15,6 +15,8 @@ class AppTextStyles {
       GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w400);
   static TextStyle mobileSubtitle =
       GoogleFonts.inter(fontSize: 34, fontWeight: FontWeight.w600);
+       static TextStyle mobileSubtitle0 =
+      GoogleFonts.inter(fontSize: 24, fontWeight: FontWeight.w600);
   static TextStyle mobileSubtitle1 =
       GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.w600);
   static TextStyle mobileSubtitle2 =

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../entities/food.entity.dart';
+part of 'food.entity.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -22,6 +22,7 @@ FoodEntity _$FoodEntityFromJson(Map<String, dynamic> json) => FoodEntity(
       categoryId: json['categoryId'] as int?,
       rating: json['rating'] as num?,
       totalRating: json['totalRating'] as int?,
+      score: json['score'] as num?,
     );
 
 Map<String, dynamic> _$FoodEntityToJson(FoodEntity instance) =>
@@ -41,6 +42,7 @@ Map<String, dynamic> _$FoodEntityToJson(FoodEntity instance) =>
       'categoryId': instance.categoryId,
       'rating': instance.rating,
       'totalRating': instance.totalRating,
+      'score': instance.score,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(
@@ -54,3 +56,17 @@ Json? _$JsonConverterToJson<Json, Value>(
   Json? Function(Value value) toJson,
 ) =>
     value == null ? null : toJson(value);
+
+DetailFoodEntity _$DetailFoodEntityFromJson(Map<String, dynamic> json) =>
+    DetailFoodEntity(
+      food: json['food'] == null
+          ? null
+          : FoodEntity.fromJson(json['food'] as Map<String, dynamic>),
+      categoryName: json['categoryName'] as String?,
+    );
+
+Map<String, dynamic> _$DetailFoodEntityToJson(DetailFoodEntity instance) =>
+    <String, dynamic>{
+      'food': instance.food?.toJson(),
+      'categoryName': instance.categoryName,
+    };

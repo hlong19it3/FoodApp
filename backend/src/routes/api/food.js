@@ -7,6 +7,7 @@ const { isRestaurantOwner } = require('../../app/middleware/role')
 const { upload, storage } = require('../../app/middleware/upload')
 
 router.get('/all', checkToken, foodController.getAll)
+router.get('/detail', checkToken, foodController.getAll)
 router.get(
   '/select-by-category-id',
   checkToken,

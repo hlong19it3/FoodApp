@@ -159,9 +159,9 @@ const selectById = async (req, res) => {
   if (id) {
     await foodDao.selectById(id).then(
       (value) => {
-        res.status(statusCode.OK).json({
-          food: value,
-        })
+        res.status(statusCode.OK).json(
+          value
+        )
       },
       (err) => {
         console.log(err)
