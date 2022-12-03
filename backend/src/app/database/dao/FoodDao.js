@@ -2,105 +2,105 @@ const { Food, Category } = require('../models')
 const { Op } = require('sequelize')
 
 async function getAll() {
-  return await Food.findAll({})
+	return await Food.findAll({})
 }
 
 async function insert(food) {
-  return await Food.findOrCreate({
-    where: {
-      restaurantId: food.restaurantId,
-      name: food.name,
-    },
-    defaults: {
-      price: food.price,
-      details: food.details,
-      image: food.image,
-      quatity: food.quatity,
-      sold: food.sold,
-      startSell: food.startSell,
-      endSell: food.endSell,
-      categoryId: food.categoryId,
-    },
-  })
+	return await Food.findOrCreate({
+		where: {
+			restaurantId: food.restaurantId,
+			name: food.name,
+		},
+		defaults: {
+			price: food.price,
+			details: food.details,
+			image: food.image,
+			quatity: food.quatity,
+			sold: food.sold,
+			startSell: food.startSell,
+			endSell: food.endSell,
+			categoryId: food.categoryId,
+			totalRating: 0,
+		},
+	})
 }
 
 async function update(food) {
-  return await Food.update(
-    {
-      name: food.name,
-      price: food.price,
-      details: food.details,
-      image: food.image,
-      quatity: food.quatity,
-      sold: food.sold,
-      startSell: food.startSell,
-      endSell: food.endSell,
-      categoryId: food.categoryId,
-    },
-    {
-      where: {
-        id: food.id,
-      },
-    }
-  )
+	return await Food.update(
+		{
+			name: food.name,
+			price: food.price,
+			details: food.details,
+			image: food.image,
+			quatity: food.quatity,
+			sold: food.sold,
+			startSell: food.startSell,
+			endSell: food.endSell,
+			categoryId: food.categoryId,
+		},
+		{
+			where: {
+				id: food.id,
+			},
+		}
+	)
 }
 
 async function selectById(id) {
-  food = await Food.findOne({
-    where: {
-      id: id,
-    },
+	food = await Food.findOne({
+		where: {
+			id: id,
+		},
+	})
+	category = await Category.findOne({
+		where: {
+			id: food.categoryId,
+		},
+	})
 
-  })
-  category = await Category.findOne({
-    where: {
-      id: food.categoryId,
-    }
-  })
-
-  return { "food": food, "categoryName": category.name }
+	return { food: food, categoryName: category.name }
 }
 
 async function selectByRestaurantId(restaurantId) {
-  return await Food.findAll({
-    where: {
-      restaurantId: restaurantId,
-    },
-  })
+	return await Food.findAll({
+		where: {
+			restaurantId: restaurantId,
+		},
+	})
 }
 async function selectByCategoryId(categoryId) {
-  return await Food.findAll({
-    where: {
-      categoryId: categoryId,
-    },
-  })
+	return await Food.findAll({
+		where: {
+			categoryId: categoryId,
+		},
+	})
 }
 
 async function deleteFood(id) {
-  return await Food.destroy({
-    where: {
-      id: id,
-    },
-  })
+	return await Food.destroy({
+		where: {
+			id: id,
+		},
+	})
 }
 
 async function search(keyword) {
-  return await Food.findAll({
-    where: {
-      name: {
-        [Op.substring]: keyword,
-      },
-    },
-  })
+	return await Food.findAll({
+		where: {
+			name: {
+				[Op.substring]: keyword,
+			},
+		},
+	})
 }
 
 module.exports = {
-  getAll,
-  insert,
-  update,
-  selectById,
-  selectByRestaurantId,
-  selectByCategoryId,
-  deleteFood,
-  search,
+	getAll,
+	insert,
+	update,
+	selectById,
+	selectByRestaurantId,
+	selectByCategoryId,
+	deleteFood,
+	search,
 }

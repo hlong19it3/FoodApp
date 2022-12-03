@@ -4,7 +4,7 @@ const { Op } = require('sequelize')
 
 const insert = async (restaurant) => {
 	return await Restaurant.findOrCreate({
-		where: { user_id: restaurant.user_id },
+		where: { userId: restaurant.userId },
 		defaults: {
 			name: restaurant.name,
 			address: restaurant.address,
@@ -12,7 +12,7 @@ const insert = async (restaurant) => {
 	})
 }
 
-const update = async (restaurant, user_id) => {
+const update = async (restaurant, userId) => {
 	return await Restaurant.update(
 		{
 			name: restaurant.name,
@@ -20,7 +20,7 @@ const update = async (restaurant, user_id) => {
 		},
 		{
 			where: {
-				user_id: user_id,
+				userId: userId,
 			},
 		}
 	)
@@ -34,19 +34,19 @@ const selectById = async (id) => {
 	})
 }
 
-const selectUserId = async (user_id) => {
+const selectUserId = async (userId) => {
 	return Restaurant.findOne({
 		where: {
-			user_id: user_id,
+			userId: userId,
 		},
 		raw: true,
 	})
 }
 
-const deleteRestaurant = async (user_id) => {
+const deleteRestaurant = async (userId) => {
 	return await Restaurant.destroy({
 		where: {
-			user_id: user_id,
+			userId: userId,
 		},
 	})
 }

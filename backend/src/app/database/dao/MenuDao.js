@@ -5,10 +5,10 @@ const { Op } = require('sequelize')
 async function insert(menu) {
 	return await Menu.findOrCreate({
 		where: {
-			restaurant_id: menu.restaurant_id,
+			restaurantId: menu.restaurantId,
 		},
 		defaults: {
-			food_id: '',
+			foodId: '',
 			description: menu.description,
 		},
 	})
@@ -17,12 +17,12 @@ async function insert(menu) {
 const update = async (id, menu) => {
 	return await Menu.update(
 		{
-			food_id: menu.food_id,
+			foodId: menu.foodId,
 			description: menu.description,
 		},
 		{
 			where: {
-				restaurant_id: id,
+				restaurantId: id,
 			},
 		}
 	)
@@ -36,10 +36,10 @@ const selectById = async (id) => {
 	})
 }
 
-const selectByRestaurantId = async (restaurant_id) => {
+const selectByRestaurantId = async (restaurantId) => {
 	return await Menu.findAll({
 		where: {
-			restaurant_id,
+			restaurantId,
 		},
 	})
 }
