@@ -1,5 +1,8 @@
-import 'package:foodapp/app/modules/base/bindings/base.binding.dart';
-import 'package:foodapp/app/modules/base/views/base.view.dart';
+import '../modules/base/bindings/base.binding.dart';
+import '../modules/base/views/base.view.dart';
+import '../modules/favorite/bindings/favorite.binding.dart';
+import '../modules/home/bindings/food_detail.binding.dart';
+import '../modules/home/views/food_detail.view.dart';
 import 'package:get/get.dart';
 
 import '../modules/auth/bindings/auth.binding.dart';
@@ -42,7 +45,13 @@ class AppPages {
       bindings: [
         BaseBinding(),
         HomeBinding(),
+        FavoriteBinding(),
       ],
+    ),
+    GetPage(
+      name: Routes.FOODDETAIL,
+      page: () => const FoodDetailView(),
+      binding: FoodDetailBinding(),
     ),
   ];
 }

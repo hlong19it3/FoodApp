@@ -60,7 +60,7 @@ const Food = sequelize.define(
 			allowNull: true,
 		},
 		details: {
-			type: DataTypes.STRING,
+			type: DataTypes.TEXT,
 			defaultValue: '',
 		},
 		image: {

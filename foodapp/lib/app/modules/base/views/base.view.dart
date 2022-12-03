@@ -27,9 +27,10 @@ class BaseView extends GetView<BaseController> {
               case 0:
                 return const HomeView();
               case 1:
-                return const ProfileView();
-              case 2:
                 return const FavoriteView();
+              case 2:
+                return const ProfileView();
+
               case 3:
                 return const ReceiptView();
             }

@@ -8,12 +8,9 @@ abstract class Routes {
   static const FORGOT_PASSWORD = '/forgot-password';
 
   static const BASE = '/base';
-  static const HOME = "/home";
-  static const FAVORITE = "/favorite";
-  static const PROFILE = "/profile";
-  static const RECEIPT = "/receipt";
 
   static const DASHBOARD = "/dashboard";
+  static const FOODDETAIL = "/food-detail";
 
   static const NOT_FOUND = "/notfound";
   // home, wallet, debt, more

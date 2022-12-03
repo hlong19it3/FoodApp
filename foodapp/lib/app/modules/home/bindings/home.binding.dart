@@ -14,6 +14,7 @@ class HomeBinding extends Bindings {
         currentUserUseCase: getIt.get<CurrentUserUseCase>(),
         getAllFoodUseCase: getIt.get<GetAllFoodUseCase>(),
         getAllCategoryUseCase: getIt.get<GetAllCategoryUseCase>(),
+        getTopRatedFoodUseCase: getIt.get<GetTopRatedFoodUseCase>(),
       ),
       permanent: true,
     );

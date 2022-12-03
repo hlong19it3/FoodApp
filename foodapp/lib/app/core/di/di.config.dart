@@ -53,5 +53,11 @@ _i1.GetIt $initGetIt(
       () => _i13.GetAllCategoryUseCase(get<_i7.ICategoryRepositories>()));
   gh.lazySingleton<_i14.GetAllFoodUseCase>(
       () => _i14.GetAllFoodUseCase(get<_i10.IFoodRepositories>()));
+  gh.lazySingleton<_i14.GetDetailFoodUseCase>(
+      () => _i14.GetDetailFoodUseCase(get<_i10.IFoodRepositories>()));
+  gh.lazySingleton<_i14.GetPopularFoodUseCase>(
+      () => _i14.GetPopularFoodUseCase(get<_i10.IFoodRepositories>()));
+  gh.lazySingleton<_i14.GetTopRatedFoodUseCase>(
+      () => _i14.GetTopRatedFoodUseCase(get<_i10.IFoodRepositories>()));
   return get;
 }

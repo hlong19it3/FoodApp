@@ -37,13 +37,27 @@ class HttpHelper {
     connectTimeout: 1000,
     receiveTimeout: 1000,
   );
+
+  static final _optionsRecommend = BaseOptions(
+    baseUrl: "http://192.168.1.8:3001/api/",
+    connectTimeout: 2000,
+    receiveTimeout: 2000,
+  );
   static final Dio _dio = Dio(_options);
+  static final Dio _dioRecommend = Dio(_optionsRecommend);
 
   static Dio getDio() {
     _dio.interceptors
       ..clear()
       ..add(TokenInterceptor(_dio));
     return _dio;
+  }
+
+  static Dio getDioRecommend() {
+    _dioRecommend.interceptors
+      ..clear()
+      ..add(TokenInterceptor(_dioRecommend));
+    return _dioRecommend;
   }
 
   static FormData mapToFormData(Map<String, dynamic> map) {
@@ -77,6 +91,18 @@ class HttpHelper {
     Function(int value, int progress)? onReceiveProgress,
   }) async {
     final Response response = await getDio().get(url,
+        queryParameters: queryParameters,
+        onReceiveProgress: onReceiveProgress,
+        cancelToken: CancelToken());
+    return HttpResponse.map(response);
+  }
+
+  static Future<HttpResponse> getRecommend(
+    String url, {
+    Map<String, dynamic>? queryParameters,
+    Function(int value, int progress)? onReceiveProgress,
+  }) async {
+    final Response response = await getDioRecommend().get(url,
         queryParameters: queryParameters,
         onReceiveProgress: onReceiveProgress,
         cancelToken: CancelToken());

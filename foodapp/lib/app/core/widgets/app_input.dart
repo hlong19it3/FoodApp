@@ -23,6 +23,8 @@ class AppInput extends StatelessWidget {
     this.inputFormatters,
     this.controller,
     this.textLabel,
+    this.onTap,
+    this.focusNode,
   }) : super(key: key);
   final String? initialValue;
   final bool readOnly;
@@ -32,6 +34,7 @@ class AppInput extends StatelessWidget {
   final bool obscureText;
   final TextInputType? keyboardType;
   final Function(String) onChanged;
+  final void Function()? onTap;
   final String prefixIconName;
   final Widget? suffixIcon;
   final String? errorText;
@@ -39,6 +42,7 @@ class AppInput extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
   final TextEditingController? controller;
   final String? textLabel;
+  final FocusNode? focusNode;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -51,6 +55,8 @@ class AppInput extends StatelessWidget {
       obscureText: obscureText,
       keyboardType: keyboardType ?? TextInputType.text,
       onChanged: onChanged,
+      onTap: onTap,
+      focusNode: focusNode,
       decoration: InputDecoration(
         isDense: true,
         label: textLabel != null ? Text(textLabel!) : null,

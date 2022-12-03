@@ -63,7 +63,7 @@ class MyApp extends StatelessWidget {
       getPages: AppPages.routes,
       navigatorKey: Get.key,
       enableLog: false,
-      defaultTransition: Transition.zoom,
+      defaultTransition: Transition.rightToLeft,
       opaqueRoute: Get.isOpaqueRouteDefault,
       popGesture: Get.isPopGestureEnable,
     );

@@ -1,4 +1,4 @@
-const { Food } = require('../models')
+const { Food, Category } = require('../models')
 const { Op } = require('sequelize')
 
 async function getAll() {
@@ -46,11 +46,19 @@ async function update(food) {
 }
 
 async function selectById(id) {
-  return await Food.findOne({
+  food = await Food.findOne({
     where: {
       id: id,
     },
+
   })
+  category = await Category.findOne({
+    where: {
+      id: food.categoryId,
+    }
+  })
+
+  return { "food": food, "categoryName": category.name }
 }
 
 async function selectByRestaurantId(restaurantId) {

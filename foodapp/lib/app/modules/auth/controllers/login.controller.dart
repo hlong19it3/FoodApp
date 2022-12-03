@@ -73,7 +73,7 @@ class LoginController extends GetxController {
                 key: KeyKey.refreshToken, value: data.tokens.refreshToken!);
             AppLoading.success(LocaleKeys.Auth_Alert_Welcome.tr);
 
-            Get.offAllNamed(Routes.HOME);
+            Get.offAllNamed(Routes.BASE);
           },
         );
       }
