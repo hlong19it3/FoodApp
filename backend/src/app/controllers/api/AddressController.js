@@ -12,7 +12,7 @@ const create = async (req, res) => {
 	}
 	try {
 		const [address, created] = await addressDao.insert({
-			user_id: user.id,
+			userId: user.id,
 			address: newAddress,
 		})
 		res.status(200).json({
@@ -124,8 +124,8 @@ const selectById = async (req, res) => {
 }
 
 const deleteAddress = async (req, res) => {
-	const user_id = req.user.id
-	addressDao.deleteAddress(user_id).then(
+	const userId = req.user.id
+	addressDao.deleteAddress(userId).then(
 		(count) => {
 			if (count > 0) {
 				res.status(200).json({

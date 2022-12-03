@@ -54,7 +54,7 @@ const updateRefreshToken = async (email, refreshToken) => {
 	// console.log(userCollection);
 	if (userCollection && userCollection.length > 0) {
 		User.update(
-			{ refresh_token: refreshToken },
+			{ refreshToken: refreshToken },
 			{
 				where: {
 					email: email,

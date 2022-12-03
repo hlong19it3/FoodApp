@@ -13,7 +13,7 @@ const create = async (req, res) => {
 	} else {
 		const description = req.body.description
 		const [menu, created] = await menuDao.insert({
-			restaurant_id: restaurant.id,
+			restaurantId: restaurant.id,
 			description: description,
 		})
 		res.status(statusCode.OK).json({
@@ -87,9 +87,9 @@ const selectById = async (req, res) => {
 }
 
 const selectByRestaurantId = async (req, res) => {
-	const restaurant_id = req.query.restaurant_id
-	if (restaurant_id) {
-		menuDao.selectByRestaurantId(restaurant_id).then(
+	const restaurantId = req.query.restaurantId
+	if (restaurantId) {
+		menuDao.selectByRestaurantId(restaurantId).then(
 			(menu) => {
 				res.status(statusCode.OK).json({
 					menu,
@@ -104,7 +104,7 @@ const selectByRestaurantId = async (req, res) => {
 		)
 	} else {
 		res.status(statusCode.BAD_REQUEST).json({
-			message: 'parameter restaurant_id is empty',
+			message: 'parameter restaurantId is empty',
 		})
 	}
 }

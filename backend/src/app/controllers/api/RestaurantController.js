@@ -10,7 +10,7 @@ const create = async (req, res) => {
 	if (name && address) {
 		const [newrestaurant, created] = await restaurantDao.insert({
 			name: name,
-			user_id: user.id,
+			userId: user.id,
 			address: address,
 		})
 		res.status(statusCode.OK).json({
@@ -79,7 +79,7 @@ const selectById = async (req, res) => {
 }
 
 const selectUserId = async (req, res) => {
-	const id = req.query.user_id
+	const id = req.query.userId
 	if (id) {
 		await restaurantDao.selectUserId(id).then(
 			(restaurant) => {
@@ -105,14 +105,14 @@ const selectUserId = async (req, res) => {
 	} else {
 		res.status(statusCode.BAD_REQUEST).json({
 			code: 1,
-			message: 'parameter user_id is empty',
+			message: 'parameter userId is empty',
 		})
 	}
 }
 
 const deleteRestaurant = async (req, res) => {
-	const user_id = req.user.id
-	restaurantDao.deleteRestaurant(user_id).then(
+	const userId = req.user.id
+	restaurantDao.deleteRestaurant(userId).then(
 		(count) => {
 			if (count > 0) {
 				res.status(statusCode.OK).json({
