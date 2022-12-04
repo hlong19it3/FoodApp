@@ -347,49 +347,71 @@ User.hasOne(Address, {
 	foreignKey: 'userId',
 })
 
+Address.belongsTo(User)
+
 User.hasMany(Order, {
 	foreignKey: 'userId',
 })
+
+Order.belongsTo(User)
 
 User.hasOne(Restaurant, {
 	foreignKey: 'userId',
 })
 
+Restaurant.belongsTo(User)
+
 User.hasMany(Rating, {
 	foreignKey: 'userId',
 })
+
+Rating.belongsTo(User)
 
 Order.hasMany(OrderDetail, {
 	foreignKey: 'orderId',
 })
 
+OrderDetail.belongsTo(Order)
+
 Order.hasOne(Rating, {
 	foreignKey: 'orderId',
 })
+
+Rating.belongsTo(Order)
 
 Food.hasMany(OrderDetail, {
 	foreignKey: 'foodId',
 })
 
+OrderDetail.belongsTo(Food)
+
 Category.hasMany(Food, {
 	foreignKey: 'categoryId',
 })
+
+Food.belongsTo(Category)
 
 Restaurant.hasOne(Menu, {
 	foreignKey: 'restaurantId',
 })
 
-// Restaurant.hasMany(Food, {
-// 	foreignKey: 'restaurantId',
-// })
+Restaurant.hasMany(Food, {
+	foreignKey: 'restaurantId',
+})
+
+Food.belongsTo(Restaurant)
 
 Restaurant.hasMany(Order, {
 	foreignKey: 'restaurantId',
 })
 
+Order.belongsTo(Restaurant)
+
 Restaurant.hasMany(Voucher, {
 	foreignKey: 'restaurantId',
 })
+
+Voucher.belongsTo(Restaurant)
 
 // Sync all tables in database
 // sequelize.sync({ force: true });

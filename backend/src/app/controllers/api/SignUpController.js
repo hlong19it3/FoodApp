@@ -3,9 +3,8 @@ const userDao = require('../../database/dao/UserDao')
 const { statusCode } = require('../../common/constants')
 
 const signUp = async (req, res) => {
-	const { email, role, firstName, lastName, address, birthday, gender, phone, password } = req.body
+	const { email, firstName, lastName, address, birthday, gender, phone, password } = req.body
 	if (firstName && lastName && gender && email && password && phone) {
-		
 		await userDao
 			.insert({
 				firstName,
@@ -16,7 +15,6 @@ const signUp = async (req, res) => {
 				phone,
 				address,
 				birthday,
-				role,
 			})
 			.then(
 				(value) => {
