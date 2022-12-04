@@ -1,5 +1,5 @@
 const connection = require('../AppDatabase')
-const { Restaurant } = require('../models')
+const { Restaurant, User } = require('../models')
 const { Op } = require('sequelize')
 
 const insert = async (restaurant) => {
@@ -31,6 +31,7 @@ const selectById = async (id) => {
 		where: {
 			id: id,
 		},
+		include: User,
 	})
 }
 
@@ -39,7 +40,23 @@ const selectUserId = async (userId) => {
 		where: {
 			userId: userId,
 		},
-		raw: true,
+		include: [
+			{
+				model: User,
+				attributes: [
+					'id',
+					'role',
+					'firstName',
+					'lastName',
+					'mainAddress',
+					'gender',
+					'email',
+					'phone',
+					'status',
+					'avatar',
+				],
+			},
+		],
 	})
 }
 

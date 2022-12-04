@@ -1,4 +1,4 @@
-const { Food, Category } = require('../models')
+const { Food, Category, Restaurant } = require('../models')
 const { Op } = require('sequelize')
 
 async function getAll() {
@@ -47,18 +47,12 @@ async function update(food) {
 }
 
 async function selectById(id) {
-	food = await Food.findOne({
+	return await Food.findOne({
 		where: {
 			id: id,
 		},
+		include: [Category, Restaurant],
 	})
-	category = await Category.findOne({
-		where: {
-			id: food.categoryId,
-		},
-	})
-
-	return { food: food, categoryName: category.name }
 }
 
 async function selectByRestaurantId(restaurantId) {
@@ -66,6 +60,7 @@ async function selectByRestaurantId(restaurantId) {
 		where: {
 			restaurantId: restaurantId,
 		},
+		include: [Category, Restaurant],
 	})
 }
 async function selectByCategoryId(categoryId) {
@@ -73,6 +68,7 @@ async function selectByCategoryId(categoryId) {
 		where: {
 			categoryId: categoryId,
 		},
+		include: [Category, Restaurant],
 	})
 }
 
@@ -91,6 +87,7 @@ async function search(keyword) {
 				[Op.substring]: keyword,
 			},
 		},
+		include: [Category, Restaurant],
 	})
 }
 
