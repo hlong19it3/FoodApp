@@ -22,14 +22,11 @@ const getAll = async (req, res) => {
 const create = async (req, res) => {
 	const { name, price, details, quantity, categoryId, startSell, endSell } = req.body
 	console.log(req.file)
-	var image = ''
-	if (req.file) {
-		image = '/img/foods/' + req.file.filename
-		console.log(image)
-	}
+	var image = req.image
+
 	// const date = Date.parse('1/1/2000 ' + food.startSell)
 	// console.log(format(date, 'HH:mm:ss'))
-	if (name && price) {
+	if (name && price && categoryId) {
 		await restaurantDao.selectUserId(req.user.id).then(
 			async (restaurant) => {
 				if (isNotEmpty(restaurant)) {
@@ -86,11 +83,7 @@ const update = async (req, res) => {
 		await restaurantDao.selectUserId(req.user.id).then(
 			async (restaurant) => {
 				if (isNotEmpty(restaurant)) {
-					var image = ''
-					if (req.file) {
-						image = './img/foods/' + req.file.filename
-						console.log(image)
-					}
+					var image = req.image
 
 					await foodDao
 						.update({
@@ -192,9 +185,7 @@ const selectByCategoryId = async (req, res) => {
 	if (id) {
 		await foodDao.selectByCategoryId(id).then(
 			(value) => {
-				res.status(statusCode.OK).json({
-					value,
-				})
+				res.status(statusCode.OK).json(value)
 			},
 			(err) => {
 				console.log(err)
@@ -266,6 +257,95 @@ const search = async (req, res) => {
 	}
 }
 
+const select = async (req, res) => {
+	const user = req.body
+	const { id, name, categoryId, restaurantId, foodIds } = req.query
+
+	if (foodIds) {
+		foodDao.selectByListId(foodIds).then(
+			(listFood) => {
+				res.status(statusCode.OK).json(listFood)
+			},
+			(err) => {
+				console.log(err)
+				res.status(statusCode.SERVER_ERROR).json({
+					message: 'Internal server error',
+				})
+			}
+		)
+		return
+	}
+
+	if (id) {
+		foodDao.selectById(id).then(
+			(food) => {
+				res.status(statusCode.OK).json([food])
+			},
+			(err) => {
+				console.log(err)
+				res.status(statusCode.SERVER_ERROR).json({
+					message: 'Internal server error',
+				})
+			}
+		)
+		return
+	}
+	if (name) {
+		foodDao.search(name).then(
+			(foods) => {
+				console.log(foods)
+				res.status(statusCode.OK).json(foods)
+			},
+			(err) => {
+				console.log(err)
+				res.status(statusCode.SERVER_ERROR).json({
+					message: 'Internal server error',
+				})
+			}
+		)
+		return
+	}
+	if (categoryId) {
+		foodDao.selectByCategoryId(categoryId).then(
+			(foods) => {
+				res.status(statusCode.OK).json(foods)
+			},
+			(err) => {
+				console.log(err)
+				res.status(statusCode.SERVER_ERROR).json({
+					message: 'Internal server error',
+				})
+			}
+		)
+		return
+	}
+	if (restaurantId) {
+		foodDao.selectByRestaurantId(restaurantId).then(
+			(foods) => {
+				res.status(statusCode.OK).json(foods)
+			},
+			(err) => {
+				console.log(err)
+				res.status(statusCode.SERVER_ERROR).json({
+					message: 'Internal server error',
+				})
+			}
+		)
+		return
+	}
+	foodDao.getAll().then(
+		(foods) => {
+			res.status(statusCode.OK).json(foods)
+		},
+		(err) => {
+			console.log(err)
+			res.status(statusCode.SERVER_ERROR).json({
+				message: 'Internal server error',
+			})
+		}
+	)
+}
+
 // TODO
 /*
 bestseller
@@ -282,4 +362,5 @@ module.exports = {
 	deleteFood,
 	search,
 	getAll,
+	select,
 }

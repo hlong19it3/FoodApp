@@ -6,6 +6,7 @@ const e = require('express')
 const create = async (req, res) => {
 	const { name, image } = req.body
 	if (name) {
+		
 		await categoryDao.insert({ name, image }).then(
 			(value) => {
 				const [category, created] = value

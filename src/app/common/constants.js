@@ -22,4 +22,19 @@ const statusCode = {
 	SERVER_ERROR: 500,
 }
 
-module.exports = { role, statusCode, gender }
+const orderStatus = {
+	WAITING: 1,
+	RESTAURANT_CONFIRM: 2,
+	SHIPPER_CONFIRM: 3,
+	SHIPPING: 4,
+	RECEIVED: 5,
+	RATED: 6,
+}
+
+const userStatus = {
+	OFFLINE: 0,
+	ONLINE: 1,
+	BUSY: 2,
+}
+
+module.exports = { role, statusCode, orderStatus, gender, userStatus }

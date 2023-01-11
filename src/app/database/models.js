@@ -92,6 +92,10 @@ const Food = sequelize.define(
 			type: DataTypes.INTEGER,
 			defaultValue: 0,
 		},
+		tags: {
+			type: DataTypes.TEXT,
+			defaultValue: '',
+		},
 	},
 	{
 		timestamps: false,
@@ -146,6 +150,10 @@ const OrderDetail = sequelize.define(
 		amount: {
 			type: DataTypes.INTEGER,
 		},
+		// note: {
+		// 	type: DataTypes.TEXT,
+		// 	defaultValue: ''
+		// },
 	},
 	{
 		timestamps: true,
@@ -168,20 +176,22 @@ const Order = sequelize.define(
 			type: DataTypes.INTEGER,
 			allowNull: false,
 		},
-		orderDate: {
-			type: DataTypes.DATE,
-			allowNull: false,
-		},
 		totalAmount: {
 			type: DataTypes.INTEGER,
+			defaultValue: 0,
 		},
 		orderStatus: {
 			type: DataTypes.INTEGER,
+			defaultValue: 0,
 		},
-		// createdAt: {
-		//   type: DataTypes.DATE,
-		//   defaultValue: DataTypes.NOW,
-		// },
+		shipperId: {
+			type: DataTypes.INTEGER,
+			defaultValue: 0,
+		},
+		address: {
+			type: DataTypes.STRING,
+			defaultValue: '',
+		},
 	},
 	{
 		timestamps: true,
@@ -258,6 +268,15 @@ const User = sequelize.define(
 		lastName: {
 			type: DataTypes.STRING,
 			allowNull: false,
+		},
+		fullName: {
+			type: DataTypes.VIRTUAL,
+			get() {
+				return `${this.firstName} ${this.lastName}`
+			},
+			set(value) {
+				throw new Error('Do not try to set the `fullName` value!')
+			},
 		},
 		mainAddress: {
 			type: DataTypes.STRING,
@@ -342,6 +361,10 @@ const Voucher = sequelize.define(
 		timestamps: false,
 	}
 )
+
+// User.hasMany(Order, {
+// 	foreignKey: 'shipperId',
+// })
 
 User.hasOne(Address, {
 	foreignKey: 'userId',

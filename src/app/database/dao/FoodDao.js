@@ -2,7 +2,7 @@ const { Food, Category, Restaurant } = require('../models')
 const { Op } = require('sequelize')
 
 async function getAll() {
-	return await Food.findAll({})
+	return await Food.findAll({ include: [Category, Restaurant] })
 }
 
 async function insert(food) {
@@ -91,6 +91,15 @@ async function search(keyword) {
 	})
 }
 
+async function selectByListId(foodIds) {
+	console.log(foodIds)
+	return await Food.findAll({
+		where: {
+			id: JSON.parse(foodIds),
+		},
+	})
+}
+
 module.exports = {
 	getAll,
 	insert,
@@ -100,4 +109,5 @@ module.exports = {
 	selectByCategoryId,
 	deleteFood,
 	search,
+	selectByListId,
 }

@@ -24,6 +24,19 @@ async function findAll() {
 	await User.findAll()
 }
 
+async function updateStatus(user) {
+	return await User.update(
+		{
+			status: user.status,
+		},
+		{
+			where: {
+				id: user.id,
+			},
+		}
+	)
+}
+
 // async function updateProfile() {
 //   // const {
 //   //   firstName,
@@ -54,4 +67,4 @@ async function findAll() {
 //   );
 // }
 
-module.exports = { insert, findAll }
+module.exports = { insert, findAll, updateStatus }

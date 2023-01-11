@@ -33,9 +33,14 @@ const currentUser = async (req, res) => {
 	const currentUserId = req.user.id
 	const user = await User.findAll({
 		attributes: [
+			'id',
+			'firstName',
 			'lastName',
 			'email',
 			'avatar',
+			'role',
+			'phone',
+			'mainAddress',
 		],
 		where: {
 			id: currentUserId,
