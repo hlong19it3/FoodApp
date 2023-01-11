@@ -52,12 +52,22 @@ if (!fs.existsSync(dir)) {
 
 //routes
 const route = require("./routes/route");
+const { User } = require("./app/database/models");
 route(app);
 
 // console.log(md5("12345"));
 
 app.get("/test-railway", (req, res) => {
   return res.json({ msg: "Ok" });
+});
+
+app.get("/test-user", async (req, res) => {
+  try {
+    rs = await User.findAll({});
+    return res.json(rs);
+  } catch (error) {
+    return res.json({ msg: "Server error" });
+  }
 });
 // run
 app.listen(port, () => {
