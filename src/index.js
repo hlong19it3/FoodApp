@@ -62,7 +62,7 @@ route(app);
 
 // console.log(md5("12345"));
 app.get("/test-user", async (req, res) => {
-  rs = User.findAll({});
+  const rs = await User.findAll({});
   return res.json(rs);
 });
 
