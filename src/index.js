@@ -61,5 +61,5 @@ app.get("/test-railway", (req, res) => {
 });
 // run
 app.listen(port, () => {
-  console.log(`Example app listening on port http://localhost:${port}`);
+  console.log(`Example app listening on port http://0.0.0.0:${port}`);
 });
